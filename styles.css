@@ -182,9 +182,35 @@ a {
     color: var(--accent);
 }
 
-.cta-group {
+.hero-socials {
     display: flex;
-    gap: 16px;
+    gap: 20px;
+}
+
+.social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: var(--surface);
+    border: 1px solid var(--surface-border);
+    border-radius: 50%;
+    color: var(--text-secondary);
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    background: var(--accent);
+    color: white;
+    transform: translateY(-4px);
+    box-shadow: 0 4px 20px var(--accent-glow);
+    border-color: var(--accent);
+}
+
+.social-icon i {
+    width: 24px;
+    height: 24px;
 }
 
 .btn {
