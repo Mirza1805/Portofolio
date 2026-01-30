@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mirza | Personal Portfolio</title>
-    <meta name="description" content="Portfolio Website of Mirza">
+    <title>Projects | Mirza</title>
+    <meta name="description" content="All Projects of Mirza">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -20,14 +20,14 @@
     <div class="cursor-glow"></div>
 
     <header class="navbar">
-        <a href="#home" class="logo-link">
+        <a href="index.html#home" class="logo-link">
             <img src="aset/logo.png" alt="Mirza Logo" class="nav-logo">
         </a>
         <nav class="nav-links">
-            <a href="#home" class="active">Home</a>
-            <a href="#about">About</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
+            <a href="index.html#home">Home</a>
+            <a href="index.html#about">About</a>
+            <a href="projects.html" class="active">Projects</a>
+            <a href="index.html#contact">Contact</a>
         </nav>
         <button class="mobile-menu-btn" aria-label="Toggle menu">
             <i data-lucide="menu"></i>
@@ -35,58 +35,10 @@
     </header>
 
     <main>
-        <section id="home" class="hero">
-            <div class="hero-content">
-                <span class="badge">Selamat Datang 👋</span>
-                <h1>Hi, I'm<span class="gradient-text"> Muhammad Mirza Rafi'uddin</span></h1>
-                <p>Programmer Game & Software</p>
-                <div class="hero-socials">
-                    <a href="https://github.com/Mirza1805" class="social-icon" aria-label="GitHub" target="_blank"
-                        rel="noopener noreferrer"><i data-lucide="github"></i></a>
-                    <a href="https://www.instagram.com/mirzarafiudin" class="social-icon" aria-label="Instagram"
-                        target="_blank" rel="noopener noreferrer"><i data-lucide="instagram"></i></a>
-                    <a href="https://www.linkedin.com/in/mirzarafiudin/" class="social-icon" aria-label="LinkedIn"
-                        target="_blank" rel="noopener noreferrer"><i data-lucide="linkedin"></i></a>
-                </div>
-            </div>
-            <div class="hero-visual">
-                <div class="hero-image-container">
-                    <img src="aset/Compress_DSC_0552.jpg" alt="Mirza" class="profile-img">
-                </div>
-                <div class="abstract-shape shape-1"></div>
-                <div class="abstract-shape shape-2"></div>
-            </div>
-        </section>
-
-        <section id="about" class="section">
-            <div class="container">
-                <h2 class="section-title">Tentang Saya</h2>
-                <div class="about-grid">
-                    <div class="about-card">
-                        <i data-lucide="code" class="icon"></i>
-                        <h3>Development</h3>
-                        <p>Membangun website modern dengan teknologi terkini seperti React, HTML5, dan CSS3.</p>
-                    </div>
-                    <div class="about-card">
-                        <i data-lucide="palette" class="icon"></i>
-                        <h3>Design</h3>
-                        <p>Menciptakan antarmuka yang bersih, estetis, dan user-friendly.</p>
-                    </div>
-                    <div class="about-card">
-                        <i data-lucide="zap" class="icon"></i>
-                        <h3>Performance</h3>
-                        <p>Optimasi kode untuk kecepatan dan aksesibilitas maksimal.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Placeholder for Projects Section -->
-        <section id="projects" class="section">
+        <section class="section" style="padding-top: 150px;">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="section-title">Project</h2>
-                    <a href="projects.html" class="see-all">See All</a>
+                    <h2 class="section-title">All Projects</h2>
                 </div>
 
                 <div class="projects-grid">
@@ -122,15 +74,18 @@
                                     data-lucide="arrow-up-right"></i></a>
                         </div>
                     </article>
-                </div>
-            </div>
-        </section>
 
-        <section id="contact" class="section contact">
-            <div class="container">
-                <h2 class="section-title">Mari Terhubung</h2>
-                <p>Punya ide menarik? Mari kita bicarakan.</p>
-                <a href="mailto:email@example.com" class="btn primary">Kirim Email</a>
+                    <!-- Duplicate for demonstration -->
+                    <article class="project-card">
+                        <img src="aset/nonM.png" alt="Another Project" class="card-bg">
+                        <div class="card-overlay">
+                            <h3 class="card-title">Another Cool Project</h3>
+                            <p class="card-desc">Web, Design</p>
+                            <a href="project-details.html" class="card-link">View Project <i
+                                    data-lucide="arrow-up-right"></i></a>
+                        </div>
+                    </article>
+                </div>
             </div>
         </section>
     </main>
