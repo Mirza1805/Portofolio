@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mirza | Personal Portfolio</title>
+    <meta name="description" content="Portfolio Website of Mirza">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Inter:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="aset/logo.png">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+    <div class="cursor-glow"></div>
+
+    <header class="navbar">
+        <a href="#home" class="logo-link">
+            <img src="aset/logo.png" alt="Mirza Logo" class="nav-logo">
+        </a>
+        <nav class="nav-links">
+            <a href="#home" class="active">Home</a>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <button class="mobile-menu-btn" aria-label="Toggle menu">
+            <i data-lucide="menu"></i>
+        </button>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <span class="badge">Selamat Datang 👋</span>
+                <h1>Hi, I'm<span class="gradient-text"> Muhammad Mirza Rafi'uddin</span></h1>
+                <p>Unity Game Programmer | Passionate about game development, with a particular interest in racing and
+                    shooter games.</p>
+                <div class="cta-group">
+                    <a href="#projects" class="btn primary">Lihat Karya</a>
+                    <a href="#contact" class="btn secondary">Hubungi Saya</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-image-container">
+                    <img src="aset/Compress_DSC_0552.jpg" alt="Mirza" class="profile-img">
+                </div>
+                <div class="abstract-shape shape-1"></div>
+                <div class="abstract-shape shape-2"></div>
+            </div>
+        </section>
+
+        <section id="about" class="section">
+            <div class="container">
+                <h2 class="section-title">Tentang Saya</h2>
+                <div class="about-grid">
+                    <div class="about-card">
+                        <i data-lucide="code" class="icon"></i>
+                        <h3>Development</h3>
+                        <p>Membangun website modern dengan teknologi terkini seperti React, HTML5, dan CSS3.</p>
+                    </div>
+                    <div class="about-card">
+                        <i data-lucide="palette" class="icon"></i>
+                        <h3>Design</h3>
+                        <p>Menciptakan antarmuka yang bersih, estetis, dan user-friendly.</p>
+                    </div>
+                    <div class="about-card">
+                        <i data-lucide="zap" class="icon"></i>
+                        <h3>Performance</h3>
+                        <p>Optimasi kode untuk kecepatan dan aksesibilitas maksimal.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Placeholder for Projects Section -->
+        <section id="projects" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Project Terbaru</h2>
+                    <a href="#" class="see-all">See All</a>
+                </div>
+
+                <div class="projects-grid">
+                    <!-- Project Card 1 -->
+                    <article class="project-card">
+                        <img src="aset/project1.png" alt="School Management System" class="card-bg">
+                        <div class="card-overlay">
+                            <h3 class="card-title">School Management System</h3>
+                            <p class="card-desc">React, Node.js</p>
+                            <a href="#" class="card-link">View Project <i data-lucide="arrow-up-right"></i></a>
+                        </div>
+                    </article>
+
+                    <!-- Project Card 2 -->
+                    <article class="project-card">
+                        <img src="aset/project2.png" alt="Nitro Rush Racing" class="card-bg">
+                        <div class="card-overlay">
+                            <h3 class="card-title">Nitro Rush Racing</h3>
+                            <p class="card-desc">Unity, C#</p>
+                            <a href="#" class="card-link">View Project <i data-lucide="arrow-up-right"></i></a>
+                        </div>
+                    </article>
+
+                    <!-- Project Card 3 -->
+                    <article class="project-card">
+                        <img src="aset/project3.png" alt="Breach Core Shooter" class="card-bg">
+                        <div class="card-overlay">
+                            <h3 class="card-title">Breach Core Shooter</h3>
+                            <p class="card-desc">Unity, C#</p>
+                            <a href="#" class="card-link">View Project <i data-lucide="arrow-up-right"></i></a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section contact">
+            <div class="container">
+                <h2 class="section-title">Mari Terhubung</h2>
+                <p>Punya ide menarik? Mari kita bicarakan.</p>
+                <a href="mailto:email@example.com" class="btn primary">Kirim Email</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Mirza. Dibuat dengan sepenuh hati.</p>
+            <div class="social-links">
+                <a href="#"><i data-lucide="github"></i></a>
+                <a href="#"><i data-lucide="linkedin"></i></a>
+                <a href="#"><i data-lucide="twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>
