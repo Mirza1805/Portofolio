@@ -17,6 +17,15 @@
     scroll-behavior: smooth;
 }
 
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
 body {
     background-color: var(--bg-color);
     color: var(--text-primary);
@@ -58,7 +67,7 @@ h3,
 }
 
 h1 {
-    font-size: 3.5rem;
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
     line-height: 1.2;
     margin-bottom: 24px;
 }
@@ -379,7 +388,8 @@ footer {
     }
 
     .navbar {
-        padding: 24px;
+        padding: 16px 24px;
+        background: rgba(13, 13, 18, 0.95);
     }
 
     .nav-links {
@@ -388,26 +398,60 @@ footer {
         top: 100%;
         left: 0;
         right: 0;
-        background: var(--bg-color);
+        background: rgba(13, 13, 18, 0.98);
         flex-direction: column;
-        padding: 24px;
+        padding: 40px 24px;
         text-align: center;
         border-bottom: 1px solid var(--surface-border);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        gap: 24px;
+        backdrop-filter: blur(10px);
     }
 
     .nav-links.open {
         display: flex;
+        animation: slideDown 0.3s ease-out forwards;
+    }
+
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 
     .mobile-menu-btn {
-        display: block;
+        display: flex;
+        /* Flex to center icon */
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        /* Larger touch target */
+        height: 44px;
     }
 
     .hero {
-        flex-direction: column;
+        flex-direction: column-reverse;
+        /* Put image on top or bottom depending on preference, usually image top for profile */
         justify-content: center;
         text-align: center;
-        padding-top: 100px;
+        padding-top: 120px;
+        padding-bottom: 60px;
+        min-height: auto;
+        gap: 60px;
+    }
+
+    .hero-content {
+        width: 100%;
+    }
+
+    .hero-socials {
+        justify-content: center;
     }
 
     .cta-group {
@@ -418,11 +462,17 @@ footer {
         width: 100%;
         position: relative;
         height: 300px;
-        margin-top: 50px;
+        margin-top: 0;
     }
 
     .hero-image-container {
-        left: 50%;
+        width: 250px;
+        height: 250px;
+        margin: 0 auto;
+    }
+
+    .shape-1,
+    .shape-2 {
         width: 200px;
         height: 200px;
     }
@@ -432,24 +482,40 @@ footer {
 .section-header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
+    /* Align to top for better wrapping */
     margin-bottom: 40px;
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
 }
 
 .section-title {
     margin-bottom: 0;
-    text-align: left;
+    text-align: center;
+    width: 100%;
 }
 
 .see-all {
-    color: var(--accent);
-    font-weight: 600;
-    font-size: 0.9rem;
+    align-self: center;
+}
+
+@media (min-width: 769px) {
+    .section-header {
+        flex-direction: row;
+        align-items: center;
+        text-align: left;
+    }
+
+    .section-title {
+        text-align: left;
+        width: auto;
+    }
 }
 
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 24px;
 }
 
@@ -718,17 +784,46 @@ footer {
     }
 
     .gallery-item {
-        width: 60vw;
+        width: 80vw;
+        /* Wider on mobile */
         height: auto;
-        aspect-ratio: 9/16;
+        aspect-ratio: 16/9;
+        /* Better for standard screenshots */
+        max-height: 400px;
     }
 
     .gallery-wrapper {
         flex-direction: column;
-        gap: 20px;
+        gap: 24px;
     }
 
     .gallery-nav {
         order: 2;
+        width: 56px;
+        /* Larger touch target */
+        height: 56px;
+    }
+
+    .project-info-grid {
+        gap: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-item {
+        width: 90vw;
+    }
+
+    .project-title {
+        font-size: 2rem;
+    }
+
+    footer {
+        padding: 40px 24px;
+    }
+
+    .social-links {
+        gap: 32px;
+        /* More space for touch */
     }
 }
