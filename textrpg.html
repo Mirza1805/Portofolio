@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Details | Mirza</title>
+    <meta name="description" content="Project Details">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Inter:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="aset/logo.png">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+    <div class="cursor-glow"></div>
+
+    <header class="navbar">
+        <a href="index.html#home" class="logo-link">
+            <img src="aset/logo.png" alt="Mirza Logo" class="nav-logo">
+        </a>
+        <nav class="nav-links">
+            <a href="index.html#home">Home</a>
+            <a href="index.html#about">About</a>
+            <a href="projects.html" class="active">Projects</a>
+            <a href="index.html#contact">Contact</a>
+        </nav>
+        <button class="mobile-menu-btn" aria-label="Toggle menu">
+            <i data-lucide="menu"></i>
+        </button>
+    </header>
+
+    <main>
+        <section class="section project-detail-section">
+            <div class="container">
+                <div class="project-layout">
+                    <!-- Main Content - Left Side -->
+                    <div class="project-main">
+                        <!-- Featured Project Image Slider -->
+                        <div class="featured-project">
+                            <div class="featured-slider">
+                                <div class="slider-track">
+                                    <div class="slider-slide active">
+                                        <img src="aset/Projek/textrpg/1.png" alt=" Screenshot 1">
+                                    </div>
+                                    <div class="slider-slide">
+                                        <img src="aset/Projek/textrpg/2.png" alt=" Screenshot 2">
+                                    </div>
+                                    <div class="slider-slide">
+                                        <img src="aset/Projek/textrpg/3.png" alt=" Screenshot 3">
+                                    </div>
+                                </div>
+
+                                <!-- Slider Navigation -->
+                                <button class="slider-nav prev" aria-label="Previous slide">
+                                    <i data-lucide="chevron-left"></i>
+                                </button>
+                                <button class="slider-nav next" aria-label="Next slide">
+                                    <i data-lucide="chevron-right"></i>
+                                </button>
+
+                                <!-- Slider Indicators -->
+                                <div class="slider-indicators">
+                                    <span class="indicator active"></span>
+                                    <span class="indicator"></span>
+                                    <span class="indicator"></span>
+                                </div>
+
+                            </div>
+                            <div class="featured-info">
+                                <h1 class="featured-title">TextRPG</h1>
+                                <div class="featured-meta">
+                                    <span class="meta-item"><i data-lucide="calendar"></i> 2024</span>
+                                    <span class="meta-item"><i data-lucide="tag"></i> Game</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Project Description -->
+                        <div class="project-content">
+                            <h2>About This Project</h2>
+                            <p>TextRPG is a text-based role-playing game developed for the Windows platform. In this
+                                project, players take on the role of a villager who must defend their village from
+                                monster attacks through narrative-driven choices and simple strategic text-based combat.
+                                The game focuses on interactive storytelling, player decision-making, and progression
+                                through branching scenarios. This project involved game logic design, narrative
+                                development, and implementation of text-based gameplay mechanics.</p>
+
+                            <h3>Key Features</h3>
+                            <ul class="feature-list">
+                                <li>Text-Based RPG Gameplay</li>
+                                <li>Narrative-Driven Choices</li>
+                                <li>Simple Combat System</li>
+                            </ul>
+
+                            <h3>Technologies Used</h3>
+                            <div class="tech-tags">
+                                <span class="tech-tag">CodeBlocks</span>
+                                <span class="tech-tag">C++</span>
+
+                            </div>
+                        </div>
+
+                        <!-- Screenshot Gallery -->
+                        <div class="screenshot-gallery">
+                            <h2>Screenshots</h2>
+                            <div class="gallery-grid">
+                                <div class="gallery-thumb">
+                                    <img src="aset/Projek/textrpg/1.png" alt="Screenshot 1">
+                                </div>
+                                <div class="gallery-thumb">
+                                    <img src="aset/Projek/textrpg/2.png" alt="Screenshot 2">
+                                </div>
+                                <div class="gallery-thumb">
+                                    <img src="aset/Projek/textrpg/3.png" alt="Screenshot 3">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sidebar - Right Side -->
+                    <aside class="project-sidebar">
+                        <div class="sidebar-section">
+                            <h3 class="sidebar-title">Other Projects</h3>
+
+                            <!-- Other Project Item 1 -->
+                            <a href="contractkiller.html" class="sidebar-project">
+                                <div class="sidebar-project-img">
+                                    <img src="aset/Projek/Contractkiller/ContractKiller.png" alt="Contract Killer">
+                                </div>
+                                <div class="sidebar-project-info">
+                                    <h4>Contract Killer</h4>
+                                    <span class="sidebar-project-tech">Unity, C#</span>
+                                </div>
+                            </a>
+
+                            <!-- Other Project Item 2 -->
+                            <a href="powershoes.html" class="sidebar-project">
+                                <div class="sidebar-project-img">
+                                    <img src="aset/Projek/PowerShoes/1.jpg" alt="Power Shoes">
+                                </div>
+                                <div class="sidebar-project-info">
+                                    <h4>Power Shoes</h4>
+                                    <span class="sidebar-project-tech">HTML, CSS</span>
+                                </div>
+                            </a>
+
+
+                            <!-- Other Project Item 3 -->
+
+                        </div>
+
+                        <!-- Back Button -->
+                        <a href="projects.html" class="btn-back">
+                            <i data-lucide="arrow-left"></i> Back to Projects
+                        </a>
+                    </aside>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>
