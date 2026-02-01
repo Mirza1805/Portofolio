@@ -685,11 +685,56 @@
             bottom: 30px;
             right: 30px;
             z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: rgba(10, 10, 30, 0.8);
+            padding: 10px 20px;
+            border-radius: 50px;
+            border: 1px solid var(--primary);
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+        }
+
+        .music-control:hover {
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+        }
+
+        .volume-slider-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            width: 0;
+            overflow: hidden;
+            transition: width 0.3s ease;
+        }
+
+        .music-control:hover .volume-slider-container {
+            width: 120px;
+        }
+
+        .volume-slider {
+            -webkit-appearance: none;
+            width: 100px;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+            outline: none;
+        }
+
+        .volume-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 15px;
+            height: 15px;
+            background: var(--primary);
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 0 10px var(--primary);
         }
 
         .music-btn {
-            width: 60px;
-            height: 60px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             border: none;
@@ -697,19 +742,19 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
-            box-shadow: 0 0 30px rgba(0, 240, 255, 0.5);
+            font-size: 1.2rem;
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.5);
             transition: all 0.3s ease;
         }
 
         .music-btn:hover {
             transform: scale(1.1);
-            box-shadow: 0 0 50px rgba(0, 240, 255, 0.8);
+            box-shadow: 0 0 30px rgba(0, 240, 255, 0.8);
         }
 
         .music-btn.paused {
             background: linear-gradient(135deg, #666, #444);
-            box-shadow: 0 0 15px rgba(100, 100, 100, 0.5);
+            box-shadow: 0 0 10px rgba(100, 100, 100, 0.5);
         }
 
         /* Corner Decorations */
@@ -811,6 +856,89 @@
                 width: 20px;
                 height: 20px;
             }
+        }
+
+        /* Link Modal & Dynamic Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 20px;
+            border: 2px solid var(--primary);
+            width: 90%;
+            max-width: 400px;
+            position: relative;
+            box-shadow: 0 0 50px rgba(0, 240, 255, 0.2);
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 5px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--primary);
+            border-radius: 5px;
+            color: white;
+            outline: none;
+        }
+
+        .form-input:focus {
+            box-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+        }
+
+        .modal-btns {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+            margin-top: 20px;
+        }
+
+        .delete-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(255, 0, 0, 0.2);
+            color: red;
+            border: none;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: all 0.3s;
+        }
+
+        .link-card:hover .delete-btn {
+            opacity: 1;
         }
     </style>
 </head>
@@ -952,74 +1080,82 @@
         <!-- Quick Links Section -->
         <section class="links-section" id="links">
             <h2 class="section-title">🔗 Quick Links</h2>
-            <div class="links-grid">
-                <a href="https://youtube.com" target="_blank" class="link-card">
-                    <div class="link-icon">📺</div>
-                    <h3 class="link-title">YouTube</h3>
-                </a>
-                <a href="https://github.com" target="_blank" class="link-card">
-                    <div class="link-icon">💻</div>
-                    <h3 class="link-title">GitHub</h3>
-                </a>
-                <a href="https://google.com" target="_blank" class="link-card">
-                    <div class="link-icon">🔍</div>
-                    <h3 class="link-title">Google</h3>
-                </a>
-                <a href="https://twitter.com" target="_blank" class="link-card">
-                    <div class="link-icon">🐦</div>
-                    <h3 class="link-title">Twitter / X</h3>
-                </a>
-                <a href="https://discord.com" target="_blank" class="link-card">
-                    <div class="link-icon">💬</div>
-                    <h3 class="link-title">Discord</h3>
-                </a>
-                <a href="https://itch.io" target="_blank" class="link-card">
-                    <div class="link-icon">🎮</div>
-                    <h3 class="link-title">Itch.io</h3>
-                </a>
-                <a href="https://spotify.com" target="_blank" class="link-card">
-                    <div class="link-icon">🎵</div>
-                    <h3 class="link-title">Spotify</h3>
-                </a>
-                <a href="https://twitch.tv" target="_blank" class="link-card">
-                    <div class="link-icon">📡</div>
-                    <h3 class="link-title">Twitch</h3>
-                </a>
+            <div class="links-grid" id="linksGrid">
+                <!-- Dynamically populated -->
             </div>
         </section>
     </div>
 
     <!-- Music Control -->
     <div class="music-control">
-        <button class="music-btn" id="musicBtn" onclick="toggleMusic()">🎵</button>
+        <div class="volume-slider-container">
+            <input type="range" min="0" max="100" value="50" class="volume-slider" id="volumeSlider"
+                oninput="setVolume(this.value)" title="Volume">
+        </div>
+        <button class="music-btn paused" id="musicBtn" onclick="toggleMusic()">🔇</button>
     </div>
 
-    <!-- Background Music -->
-    <iframe id="bgMusic" width="0" height="0" src="" frameborder="0" allow="autoplay" style="display: none;">
-    </iframe>
+    <!-- Background Music API Target -->
+    <div id="player"></div>
 
     <script>
         // ========================================
-        // 🎵 BACKGROUND MUSIC 🎵
+        // 🎵 BACKGROUND MUSIC (YouTube API) 🎵
         // ========================================
-        const YOUTUBE_EMBED_URL = "https://www.youtube.com/embed/jfKfPfyJRdk?autoplay=1&loop=1";
-        // ========================================
-
+        let player;
         let isMusicPlaying = false;
-        const bgMusic = document.getElementById('bgMusic');
-        const musicBtn = document.getElementById('musicBtn');
+
+        // Load YouTube IFrame API
+        var tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('player', {
+                height: '0',
+                width: '0',
+                videoId: 'jfKfPfyJRdk',
+                playerVars: {
+                    'playsinline': 1,
+                    'controls': 0,
+                    'disablekb': 1,
+                    'loop': 1,
+                    'playlist': 'jfKfPfyJRdk'
+                },
+                events: {
+                    'onReady': onPlayerReady
+                }
+            });
+        }
+
+        function onPlayerReady(event) {
+            const vol = localStorage.getItem('musicVolume') || 50;
+            event.target.setVolume(vol);
+            document.getElementById('volumeSlider').value = vol;
+        }
 
         function toggleMusic() {
-            if (!isMusicPlaying) {
-                bgMusic.src = YOUTUBE_EMBED_URL;
-                isMusicPlaying = true;
-                musicBtn.textContent = '🔊';
-                musicBtn.classList.remove('paused');
-            } else {
-                bgMusic.src = '';
+            const btn = document.getElementById('musicBtn');
+            if (!player || !player.playVideo) return;
+
+            if (isMusicPlaying) {
+                player.pauseVideo();
                 isMusicPlaying = false;
-                musicBtn.textContent = '🔇';
-                musicBtn.classList.add('paused');
+                btn.textContent = '�';
+                btn.classList.add('paused');
+            } else {
+                player.playVideo();
+                isMusicPlaying = true;
+                btn.textContent = '�';
+                btn.classList.remove('paused');
+            }
+        }
+
+        function setVolume(val) {
+            if (player && player.setVolume) {
+                player.setVolume(val);
+                localStorage.setItem('musicVolume', val);
             }
         }
 
@@ -1845,6 +1981,7 @@
 
         // PONG
         let pongGame, pongCtx, ballX, ballY, ballSpeedX, ballSpeedY, paddle1Y, paddle2Y;
+        let pongScore1 = 0, pongScore2 = 0;
         const PADDLE_HEIGHT = 60, PADDLE_THICKNESS = 10;
 
         function initPong(container) {
@@ -1866,6 +2003,9 @@
             ballSpeedY = 2;
             paddle1Y = canvas.height / 2 - PADDLE_HEIGHT / 2;
             paddle2Y = canvas.height / 2 - PADDLE_HEIGHT / 2;
+            pongScore1 = 0;
+            pongScore2 = 0;
+            updatePongScore();
 
             if (pongGame) clearInterval(pongGame);
 
@@ -1877,12 +2017,12 @@
             });
 
             canvas.addEventListener('touchmove', (e) => {
-                e.preventDefault();
+                e.preventDefault(); // Prevent scrolling
                 const rect = canvas.getBoundingClientRect();
                 const scaleY = canvas.height / rect.height;
                 const touchY = (e.touches[0].clientY - rect.top) * scaleY;
                 paddle1Y = touchY - PADDLE_HEIGHT / 2;
-            });
+            }, { passive: false });
 
             pongGame = setInterval(() => {
                 ballX += ballSpeedX;
@@ -1890,10 +2030,8 @@
 
                 // AI Movement
                 const paddle2Center = paddle2Y + PADDLE_HEIGHT / 2;
-                // Move AI only if ball is coming towards it to make it feel more natural
-                // or just always track. Let's make it always track but with speed limit.
-                if (paddle2Center < ballY - 20) paddle2Y += 4;
-                else if (paddle2Center > ballY + 20) paddle2Y -= 4;
+                if (paddle2Center < ballY - 20) paddle2Y += 5;
+                else if (paddle2Center > ballY + 20) paddle2Y -= 5;
 
                 // Clamp paddles
                 paddle1Y = Math.max(0, Math.min(canvas.height - PADDLE_HEIGHT, paddle1Y));
@@ -1902,30 +2040,44 @@
                 // Bounce Top/Bottom
                 if (ballY < 0 || ballY > canvas.height) ballSpeedY = -ballSpeedY;
 
-                // Paddle Collision
+                // Check Left Wall (AI/P2 Scores)
                 if (ballX < 0) {
                     if (ballY > paddle1Y && ballY < paddle1Y + PADDLE_HEIGHT) {
                         ballSpeedX = -ballSpeedX;
                         const deltaY = ballY - (paddle1Y + PADDLE_HEIGHT / 2);
                         ballSpeedY = deltaY * 0.35;
                     } else {
-                        // Reset
-                        ballX = canvas.width / 2;
-                        ballY = canvas.height / 2;
+                        // AI Scores
+                        pongScore2++;
+                        updatePongScore();
+                        resetBall();
                     }
                 }
+
+                // Check Right Wall (Player/P1 Scores)
                 if (ballX > canvas.width) {
                     if (ballY > paddle2Y && ballY < paddle2Y + PADDLE_HEIGHT) {
                         ballSpeedX = -ballSpeedX;
+                        const deltaY = ballY - (paddle2Y + PADDLE_HEIGHT / 2);
+                        ballSpeedY = deltaY * 0.35;
                     } else {
-                        ballX = canvas.width / 2;
-                        ballY = canvas.height / 2;
+                        // Player Scores
+                        pongScore1++;
+                        updatePongScore();
+                        resetBall();
                     }
                 }
 
                 // Draw
                 pongCtx.fillStyle = 'black';
                 pongCtx.fillRect(0, 0, canvas.width, canvas.height);
+
+                // Net
+                pongCtx.fillStyle = 'rgba(255,255,255,0.2)';
+                for (let i = 0; i < canvas.height; i += 20) {
+                    pongCtx.fillRect(canvas.width / 2 - 1, i, 2, 10);
+                }
+
                 pongCtx.fillStyle = 'white';
                 pongCtx.fillRect(0, paddle1Y, PADDLE_THICKNESS, PADDLE_HEIGHT);
                 pongCtx.fillRect(canvas.width - PADDLE_THICKNESS, paddle2Y, PADDLE_THICKNESS, PADDLE_HEIGHT);
@@ -1933,6 +2085,19 @@
                 pongCtx.arc(ballX, ballY, 5, 0, Math.PI * 2, true);
                 pongCtx.fill();
             }, 1000 / 60);
+        }
+
+        function resetBall() {
+            const canvas = document.getElementById('pongCanvas');
+            ballX = canvas.width / 2;
+            ballY = canvas.height / 2;
+            ballSpeedX = -ballSpeedX; // Serve to the other side
+            ballSpeedY = (Math.random() * 4) - 2;
+        }
+
+        function updatePongScore() {
+            const el = document.getElementById('pongScore');
+            if (el) el.textContent = `${pongScore1} - ${pongScore2}`;
         }
 
         // 2048
@@ -2201,7 +2366,118 @@
             renderHangman(document.getElementById('gameContent'));
         }
 
+        // ========================================
+        // 🔗 DYNAMIC LINKS
+        // ========================================
+        const defaultLinks = [
+            { name: 'YouTube', icon: '📺', url: 'https://youtube.com' },
+            { name: 'GitHub', icon: '💻', url: 'https://github.com' },
+            { name: 'Google', icon: '🔍', url: 'https://google.com' },
+            { name: 'Twitter / X', icon: '🐦', url: 'https://twitter.com' },
+            { name: 'Discord', icon: '💬', url: 'https://discord.com' },
+            { name: 'Itch.io', icon: '🎮', url: 'https://itch.io' },
+            { name: 'Spotify', icon: '🎵', url: 'https://spotify.com' },
+            { name: 'Twitch', icon: '📡', url: 'https://twitch.tv' }
+        ];
+
+        let userLinks = JSON.parse(localStorage.getItem('chillLinks')) || defaultLinks;
+
+        function renderLinks() {
+            const grid = document.getElementById('linksGrid');
+            if (!grid) return;
+            grid.innerHTML = '';
+
+            userLinks.forEach((link, index) => {
+                const el = document.createElement('div');
+                el.className = 'link-card';
+                el.innerHTML = `
+                    <button class="delete-btn" onclick="deleteLink(event, ${index})">❌</button>
+                    <div class="link-icon">${link.icon}</div>
+                    <h3 class="link-title">${link.name}</h3>
+                `;
+                el.onclick = (e) => {
+                    if (!e.target.classList.contains('delete-btn')) {
+                        window.open(link.url, '_blank');
+                    }
+                };
+                grid.appendChild(el);
+            });
+
+            // Add "Add New" button
+            const addBtn = document.createElement('div');
+            addBtn.className = 'link-card';
+            addBtn.style.border = '2px dashed rgba(0, 240, 255, 0.3)';
+            addBtn.style.opacity = '0.7';
+            addBtn.innerHTML = `
+                <div class="link-icon" style="background:none;border:2px solid var(--primary);color:var(--primary)">➕</div>
+                <h3 class="link-title">Add Link</h3>
+            `;
+            addBtn.onclick = () => openModal();
+            grid.appendChild(addBtn);
+        }
+
+        function openModal() {
+            document.getElementById('linkModal').classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('linkModal').classList.remove('active');
+            document.getElementById('linkName').value = '';
+            document.getElementById('linkIcon').value = '';
+            document.getElementById('linkUrl').value = '';
+        }
+
+        function saveLink() {
+            const name = document.getElementById('linkName').value;
+            const icon = document.getElementById('linkIcon').value || '🔗';
+            let url = document.getElementById('linkUrl').value;
+
+            if (!name || !url) return alert('Name and URL are required!');
+
+            if (!url.startsWith('http')) url = 'https://' + url;
+
+            userLinks.push({ name, icon, url });
+            localStorage.setItem('chillLinks', JSON.stringify(userLinks));
+            renderLinks();
+            closeModal();
+        }
+
+        function deleteLink(e, index) {
+            e.stopPropagation();
+            if (confirm('Delete this link?')) {
+                userLinks.splice(index, 1);
+                localStorage.setItem('chillLinks', JSON.stringify(userLinks));
+                renderLinks();
+            }
+        }
+
+        // Init
+        renderLinks();
     </script>
+    <!-- Link Modal -->
+    <div class="modal-overlay" id="linkModal">
+        <div class="modal-content">
+            <h3 style="text-align:center;margin-bottom:20px;font-size:1.5rem;color:var(--primary)">Add New Link</h3>
+            <div class="form-group">
+                <label class="form-label">Name</label>
+                <input type="text" class="form-input" id="linkName" placeholder="My Website">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Icon (Emoji)</label>
+                <input type="text" class="form-input" id="linkIcon" placeholder="🌐">
+            </div>
+            <div class="form-group">
+                <label class="form-label">URL</label>
+                <input type="text" class="form-input" id="linkUrl" placeholder="example.com">
+            </div>
+            <div class="modal-btns">
+                <button class="game-btn"
+                    style="padding:10px 20px;background:transparent;border:1px solid #666;color:#ccc;"
+                    onclick="closeModal()">Cancel</button>
+                <button class="game-btn" style="padding:10px 20px;margin:0;" onclick="saveLink()">Save</button>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

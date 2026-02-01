@@ -162,16 +162,16 @@ a {
 }
 
 /* Hero Section */
-/* Hero Section */
 .hero {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 0 5%;
+    justify-content: center;
+    padding: 80px 5%;
+    padding-left: 17%;
     position: relative;
     overflow: hidden;
-    gap: 40px;
+    gap: 60px;
 }
 
 .hero-content {
