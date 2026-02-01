@@ -1648,7 +1648,7 @@
             container.innerHTML = `
                 <h2 class="section-title" style="margin-top: 30px;">🧺 Catch Falling</h2>
                 <div class="game-score">Score: <span id="catchScore">0</span> | Time: <span id="catchTime">30</span>s</div>
-                <div id="catchArea" style="position:relative;width:300px;height:300px;margin:20px auto;background:rgba(0,0,0,0.3);border:2px solid var(--primary);border-radius:10px;overflow:hidden;">
+                <div id="catchArea" style="position:relative;width:90%;max-width:300px;height:300px;margin:20px auto;background:rgba(0,0,0,0.3);border:2px solid var(--primary);border-radius:10px;overflow:hidden;">
                     <div id="basket" style="position:absolute;bottom:10px;left:50%;transform:translateX(-50%);font-size:2rem;">🧺</div>
                     <div id="touchLeft" style="position:absolute;top:0;left:0;width:50%;height:100%;z-index:9;"></div>
                     <div id="touchRight" style="position:absolute;top:0;right:0;width:50%;height:100%;z-index:9;"></div>
@@ -1851,7 +1851,7 @@
             container.innerHTML = `
                 <h2 class="section-title" style="margin-top: 30px;">🏓 Pong</h2>
                 <div class="game-score" id="pongScore">0 - 0</div>
-                <canvas id="pongCanvas" width="400" height="300" style="border:2px solid var(--primary);border-radius:10px;margin:0 auto;display:block;background:black;"></canvas>
+                <canvas id="pongCanvas" width="400" height="300" style="width:100%;max-width:400px;height:auto;border:2px solid var(--primary);border-radius:10px;margin:0 auto;display:block;background:black;"></canvas>
                 <p style="text-align:center;color:gray;font-size:0.8rem;">Mouse/Touch to move</p>
                 <button class="game-btn" onclick="startPong()">Start Game</button>
             `;
@@ -1871,15 +1871,16 @@
 
             canvas.addEventListener('mousemove', (e) => {
                 const rect = canvas.getBoundingClientRect();
-                const root = document.documentElement;
-                const mouseY = e.clientY - rect.top - root.scrollTop;
+                const scaleY = canvas.height / rect.height;
+                const mouseY = (e.clientY - rect.top) * scaleY;
                 paddle1Y = mouseY - PADDLE_HEIGHT / 2;
             });
 
             canvas.addEventListener('touchmove', (e) => {
                 e.preventDefault();
                 const rect = canvas.getBoundingClientRect();
-                const touchY = e.touches[0].clientY - rect.top;
+                const scaleY = canvas.height / rect.height;
+                const touchY = (e.touches[0].clientY - rect.top) * scaleY;
                 paddle1Y = touchY - PADDLE_HEIGHT / 2;
             });
 
@@ -1889,8 +1890,14 @@
 
                 // AI Movement
                 const paddle2Center = paddle2Y + PADDLE_HEIGHT / 2;
-                if (paddle2Center < ballY - 35) paddle2Y += 4;
-                else if (paddle2Center > ballY + 35) paddle2Y -= 4;
+                // Move AI only if ball is coming towards it to make it feel more natural
+                // or just always track. Let's make it always track but with speed limit.
+                if (paddle2Center < ballY - 20) paddle2Y += 4;
+                else if (paddle2Center > ballY + 20) paddle2Y -= 4;
+
+                // Clamp paddles
+                paddle1Y = Math.max(0, Math.min(canvas.height - PADDLE_HEIGHT, paddle1Y));
+                paddle2Y = Math.max(0, Math.min(canvas.height - PADDLE_HEIGHT, paddle2Y));
 
                 // Bounce Top/Bottom
                 if (ballY < 0 || ballY > canvas.height) ballSpeedY = -ballSpeedY;
@@ -1936,7 +1943,7 @@
             container.innerHTML = `
                 <h2 class="section-title" style="margin-top: 30px;">🔢 2048</h2>
                 <div class="game-score">Score: <span id="score2048">0</span></div>
-                <div id="grid2048" style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;width:300px;margin:0 auto;background:#bbada0;padding:10px;border-radius:10px;"></div>
+                <div id="grid2048" style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;width:100%;max-width:300px;margin:0 auto;background:#bbada0;padding:10px;border-radius:10px;"></div>
                 <p style="text-align:center;">Use Arrow Keys</p>
                 <div style="display:flex;justify-content:center;gap:10px;margin-top:10px;">
                     <button class="game-btn" style="padding:10px 20px;font-size:0.8rem;margin:0;" onclick="move2048('up')">⬆️</button>
