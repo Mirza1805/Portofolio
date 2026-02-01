@@ -168,10 +168,10 @@ a {
     align-items: center;
     justify-content: center;
     padding: 80px 5%;
-    padding-left: 17%;
     position: relative;
-    overflow: hidden;
-    gap: 60px;
+    gap: 150px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .hero-content {
@@ -258,6 +258,7 @@ a {
     align-items: center;
     height: 500px;
     z-index: 1;
+    overflow: visible;
 }
 
 .hero-image-container {
