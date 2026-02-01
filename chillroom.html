@@ -8,6 +8,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;500;700&display=swap"
         rel="stylesheet">
+    <link rel="icon" type="image/png" href="aset/Chill.png">
     <style>
         * {
             margin: 0;
@@ -831,7 +832,7 @@
     <div class="corner-decor bottom-right"></div>
 
     <!-- Home Button -->
-    <a href="projects.html" class="home-btn" title="Back to Home">
+    <a href="chill.html" class="home-btn" title="Back to Home">
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
         </svg>
@@ -907,6 +908,36 @@
                     <h3 class="game-title">Catch Falling</h3>
                     <p class="game-desc">Catch falling objects!</p>
                 </div>
+                <div class="game-card" onclick="openGame('simon')">
+                    <div class="game-icon">🔔</div>
+                    <h3 class="game-title">Simon Says</h3>
+                    <p class="game-desc">Repeat the color sequence!</p>
+                </div>
+                <div class="game-card" onclick="openGame('rps')">
+                    <div class="game-icon">✌️</div>
+                    <h3 class="game-title">Rock Paper Scissors</h3>
+                    <p class="game-desc">Beat the AI!</p>
+                </div>
+                <div class="game-card" onclick="openGame('pong')">
+                    <div class="game-icon">🏓</div>
+                    <h3 class="game-title">Pong</h3>
+                    <p class="game-desc">Classic arcade tennis!</p>
+                </div>
+                <div class="game-card" onclick="openGame('2048')">
+                    <div class="game-icon">🔢</div>
+                    <h3 class="game-title">2048</h3>
+                    <p class="game-desc">Combine numbers to reach 2048!</p>
+                </div>
+                <div class="game-card" onclick="openGame('flappy')">
+                    <div class="game-icon">🐦</div>
+                    <h3 class="game-title">Flappy Bird</h3>
+                    <p class="game-desc">Fly through the pipes!</p>
+                </div>
+                <div class="game-card" onclick="openGame('hangman')">
+                    <div class="game-icon">🔤</div>
+                    <h3 class="game-title">Hangman</h3>
+                    <p class="game-desc">Guess the word!</p>
+                </div>
             </div>
         </section>
 
@@ -971,7 +1002,7 @@
         // ========================================
         // 🎵 BACKGROUND MUSIC 🎵
         // ========================================
-        const YOUTUBE_EMBED_URL = "https://www.youtube.com/embed/sF80I-TQiW0?autoplay=1&loop=1";
+        const YOUTUBE_EMBED_URL = "https://www.youtube.com/embed/jfKfPfyJRdk?autoplay=1&loop=1";
         // ========================================
 
         let isMusicPlaying = false;
@@ -1098,6 +1129,24 @@
                 case 'catch':
                     initCatch(gameContent);
                     break;
+                case 'simon':
+                    initSimon(gameContent);
+                    break;
+                case 'rps':
+                    initRPS(gameContent);
+                    break;
+                case 'pong':
+                    initPong(gameContent);
+                    break;
+                case '2048':
+                    init2048(gameContent);
+                    break;
+                case 'flappy':
+                    initFlappy(gameContent);
+                    break;
+                case 'hangman':
+                    initHangman(gameContent);
+                    break;
             }
         }
 
@@ -1138,7 +1187,7 @@
                 if (head.y >= tileCount) head.y = 0;
 
                 // Check collision with self
-                for (let i = 0; i < snake.length; i++) {
+                for (let i = 1; i < snake.length; i++) {
                     if (head.x === snake[i].x && head.y === snake[i].y) {
                         clearInterval(snakeGame);
                         alert('Game Over! Score: ' + snakeScore);
@@ -1176,14 +1225,29 @@
 
         document.addEventListener('keydown', (e) => {
             if (currentGame !== 'snake') return;
-            if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.key)) {
+            const key = e.key.toLowerCase();
+            const validKeys = ['arrowup', 'arrowdown', 'arrowleft', 'arrowright', 'w', 'a', 's', 'd'];
+
+            if (validKeys.includes(key)) {
                 e.preventDefault();
             }
-            switch (e.key) {
-                case 'ArrowUp': if (direction.y !== 1) direction = { x: 0, y: -1 }; break;
-                case 'ArrowDown': if (direction.y !== -1) direction = { x: 0, y: 1 }; break;
-                case 'ArrowLeft': if (direction.x !== 1) direction = { x: -1, y: 0 }; break;
-                case 'ArrowRight': if (direction.x !== -1) direction = { x: 1, y: 0 }; break;
+            switch (key) {
+                case 'arrowup':
+                case 'w':
+                    if (direction.y !== 1) direction = { x: 0, y: -1 };
+                    break;
+                case 'arrowdown':
+                case 's':
+                    if (direction.y !== -1) direction = { x: 0, y: 1 };
+                    break;
+                case 'arrowleft':
+                case 'a':
+                    if (direction.x !== 1) direction = { x: -1, y: 0 };
+                    break;
+                case 'arrowright':
+                case 'd':
+                    if (direction.x !== -1) direction = { x: 1, y: 0 };
+                    break;
             }
         });
 
@@ -1586,6 +1650,8 @@
                 <div class="game-score">Score: <span id="catchScore">0</span> | Time: <span id="catchTime">30</span>s</div>
                 <div id="catchArea" style="position:relative;width:300px;height:300px;margin:20px auto;background:rgba(0,0,0,0.3);border:2px solid var(--primary);border-radius:10px;overflow:hidden;">
                     <div id="basket" style="position:absolute;bottom:10px;left:50%;transform:translateX(-50%);font-size:2rem;">🧺</div>
+                    <div id="touchLeft" style="position:absolute;top:0;left:0;width:50%;height:100%;z-index:9;"></div>
+                    <div id="touchRight" style="position:absolute;top:0;right:0;width:50%;height:100%;z-index:9;"></div>
                 </div>
                 <p style="text-align:center;color:rgba(255,255,255,0.6);">Use ← → Arrow Keys or tap sides to move</p>
                 <button class="game-btn" onclick="startCatch()">Start Game</button>
@@ -1647,6 +1713,487 @@
             if (e.key === 'ArrowRight') pos = Math.min(90, pos + 10);
             basket.style.left = pos + '%';
         });
+
+        // Touch controls for Catch
+        document.addEventListener('touchstart', (e) => {
+            if (currentGame !== 'catch') return;
+            // Check if target is part of the game touch areas
+            if (e.target.id === 'touchLeft') {
+                moveBasket(-10);
+                e.preventDefault();
+            } else if (e.target.id === 'touchRight') {
+                moveBasket(10);
+                e.preventDefault();
+            }
+        });
+
+        function moveBasket(delta) {
+            const basket = document.getElementById('basket');
+            if (!basket) return;
+            let pos = parseFloat(basket.style.left) || 50;
+            pos = Math.max(10, Math.min(90, pos + delta));
+            basket.style.left = pos + '%';
+        }
+
+        // ===================================
+        // NEW GAMES
+        // ===================================
+
+        // SIMON SAYS
+        let simonSequence = [], simonUserSequence = [], simonLevel = 0, simonCanClick = false;
+
+        function initSimon(container) {
+            simonSequence = [];
+            simonUserSequence = [];
+            simonLevel = 0;
+            container.innerHTML = `
+                <h2 class="section-title" style="margin-top: 30px;">🔔 Simon Says</h2>
+                <div class="game-score">Level: <span id="simonLevel">0</span></div>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;max-width:300px;margin:20px auto;">
+                    <div id="simon0" onclick="simonInput(0)" style="aspect-ratio:1;background:#e74c3c;border-radius:10px;opacity:0.6;cursor:pointer;"></div>
+                    <div id="simon1" onclick="simonInput(1)" style="aspect-ratio:1;background:#3498db;border-radius:10px;opacity:0.6;cursor:pointer;"></div>
+                    <div id="simon2" onclick="simonInput(2)" style="aspect-ratio:1;background:#f1c40f;border-radius:10px;opacity:0.6;cursor:pointer;"></div>
+                    <div id="simon3" onclick="simonInput(3)" style="aspect-ratio:1;background:#2ecc71;border-radius:10px;opacity:0.6;cursor:pointer;"></div>
+                </div>
+                <button class="game-btn" onclick="startSimon()">Start Game</button>
+            `;
+        }
+
+        function startSimon() {
+            simonSequence = [];
+            simonLevel = 0;
+            nextSimonLevel();
+        }
+
+        function nextSimonLevel() {
+            simonUserSequence = [];
+            simonLevel++;
+            document.getElementById('simonLevel').textContent = simonLevel;
+            simonSequence.push(Math.floor(Math.random() * 4));
+            simonCanClick = false;
+
+            let i = 0;
+            const interval = setInterval(() => {
+                flashSimon(simonSequence[i]);
+                i++;
+                if (i >= simonSequence.length) {
+                    clearInterval(interval);
+                    simonCanClick = true;
+                }
+            }, 800);
+        }
+
+        function flashSimon(idx) {
+            const btn = document.getElementById('simon' + idx);
+            btn.style.opacity = '1';
+            setTimeout(() => {
+                btn.style.opacity = '0.6';
+            }, 400);
+        }
+
+        function simonInput(idx) {
+            if (!simonCanClick) return;
+            flashSimon(idx);
+            simonUserSequence.push(idx);
+
+            if (simonUserSequence[simonUserSequence.length - 1] !== simonSequence[simonUserSequence.length - 1]) {
+                alert('Game Over! Reached Level ' + simonLevel);
+                simonCanClick = false;
+                return;
+            }
+
+            if (simonUserSequence.length === simonSequence.length) {
+                simonCanClick = false;
+                setTimeout(nextSimonLevel, 1000);
+            }
+        }
+
+        // ROCK PAPER SCISSORS
+        function initRPS(container) {
+            container.innerHTML = `
+                <h2 class="section-title" style="margin-top: 30px;">✌️ Rock Paper Scissors</h2>
+                <div class="game-score" id="rpsResult">Choose!</div>
+                <div style="font-size:4rem;text-align:center;margin:30px 0;">
+                    <span id="aiMove">🤖</span>
+                </div>
+                <div style="display:flex;gap:20px;justify-content:center;">
+                    <button onclick="playRPS('rock')" style="font-size:2rem;padding:10px;background:var(--card-bg);border:2px solid var(--primary);border-radius:10px;cursor:pointer;">✊</button>
+                    <button onclick="playRPS('paper')" style="font-size:2rem;padding:10px;background:var(--card-bg);border:2px solid var(--primary);border-radius:10px;cursor:pointer;">✋</button>
+                    <button onclick="playRPS('scissors')" style="font-size:2rem;padding:10px;background:var(--card-bg);border:2px solid var(--primary);border-radius:10px;cursor:pointer;">✌️</button>
+                </div>
+            `;
+        }
+
+        function playRPS(userChoice) {
+            const choices = ['rock', 'paper', 'scissors'];
+            const icons = { 'rock': '✊', 'paper': '✋', 'scissors': '✌️' };
+            const aiChoice = choices[Math.floor(Math.random() * 3)];
+
+            document.getElementById('aiMove').textContent = icons[aiChoice];
+
+            let result = '';
+            if (userChoice === aiChoice) result = "It's a Draw!";
+            else if (
+                (userChoice === 'rock' && aiChoice === 'scissors') ||
+                (userChoice === 'paper' && aiChoice === 'rock') ||
+                (userChoice === 'scissors' && aiChoice === 'paper')
+            ) result = "You Win! 🎉";
+            else result = "You Lose! 🤖";
+
+            document.getElementById('rpsResult').textContent = result;
+        }
+
+        // PONG
+        let pongGame, pongCtx, ballX, ballY, ballSpeedX, ballSpeedY, paddle1Y, paddle2Y;
+        const PADDLE_HEIGHT = 60, PADDLE_THICKNESS = 10;
+
+        function initPong(container) {
+            container.innerHTML = `
+                <h2 class="section-title" style="margin-top: 30px;">🏓 Pong</h2>
+                <div class="game-score" id="pongScore">0 - 0</div>
+                <canvas id="pongCanvas" width="400" height="300" style="border:2px solid var(--primary);border-radius:10px;margin:0 auto;display:block;background:black;"></canvas>
+                <p style="text-align:center;color:gray;font-size:0.8rem;">Mouse/Touch to move</p>
+                <button class="game-btn" onclick="startPong()">Start Game</button>
+            `;
+        }
+
+        function startPong() {
+            const canvas = document.getElementById('pongCanvas');
+            pongCtx = canvas.getContext('2d');
+            ballX = canvas.width / 2;
+            ballY = canvas.height / 2;
+            ballSpeedX = 5;
+            ballSpeedY = 2;
+            paddle1Y = canvas.height / 2 - PADDLE_HEIGHT / 2;
+            paddle2Y = canvas.height / 2 - PADDLE_HEIGHT / 2;
+
+            if (pongGame) clearInterval(pongGame);
+
+            canvas.addEventListener('mousemove', (e) => {
+                const rect = canvas.getBoundingClientRect();
+                const root = document.documentElement;
+                const mouseY = e.clientY - rect.top - root.scrollTop;
+                paddle1Y = mouseY - PADDLE_HEIGHT / 2;
+            });
+
+            canvas.addEventListener('touchmove', (e) => {
+                e.preventDefault();
+                const rect = canvas.getBoundingClientRect();
+                const touchY = e.touches[0].clientY - rect.top;
+                paddle1Y = touchY - PADDLE_HEIGHT / 2;
+            });
+
+            pongGame = setInterval(() => {
+                ballX += ballSpeedX;
+                ballY += ballSpeedY;
+
+                // AI Movement
+                const paddle2Center = paddle2Y + PADDLE_HEIGHT / 2;
+                if (paddle2Center < ballY - 35) paddle2Y += 4;
+                else if (paddle2Center > ballY + 35) paddle2Y -= 4;
+
+                // Bounce Top/Bottom
+                if (ballY < 0 || ballY > canvas.height) ballSpeedY = -ballSpeedY;
+
+                // Paddle Collision
+                if (ballX < 0) {
+                    if (ballY > paddle1Y && ballY < paddle1Y + PADDLE_HEIGHT) {
+                        ballSpeedX = -ballSpeedX;
+                        const deltaY = ballY - (paddle1Y + PADDLE_HEIGHT / 2);
+                        ballSpeedY = deltaY * 0.35;
+                    } else {
+                        // Reset
+                        ballX = canvas.width / 2;
+                        ballY = canvas.height / 2;
+                    }
+                }
+                if (ballX > canvas.width) {
+                    if (ballY > paddle2Y && ballY < paddle2Y + PADDLE_HEIGHT) {
+                        ballSpeedX = -ballSpeedX;
+                    } else {
+                        ballX = canvas.width / 2;
+                        ballY = canvas.height / 2;
+                    }
+                }
+
+                // Draw
+                pongCtx.fillStyle = 'black';
+                pongCtx.fillRect(0, 0, canvas.width, canvas.height);
+                pongCtx.fillStyle = 'white';
+                pongCtx.fillRect(0, paddle1Y, PADDLE_THICKNESS, PADDLE_HEIGHT);
+                pongCtx.fillRect(canvas.width - PADDLE_THICKNESS, paddle2Y, PADDLE_THICKNESS, PADDLE_HEIGHT);
+                pongCtx.beginPath();
+                pongCtx.arc(ballX, ballY, 5, 0, Math.PI * 2, true);
+                pongCtx.fill();
+            }, 1000 / 60);
+        }
+
+        // 2048
+        let board2048 = [];
+        let score2048 = 0;
+
+        function init2048(container) {
+            container.innerHTML = `
+                <h2 class="section-title" style="margin-top: 30px;">🔢 2048</h2>
+                <div class="game-score">Score: <span id="score2048">0</span></div>
+                <div id="grid2048" style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;width:300px;margin:0 auto;background:#bbada0;padding:10px;border-radius:10px;"></div>
+                <p style="text-align:center;">Use Arrow Keys</p>
+                <div style="display:flex;justify-content:center;gap:10px;margin-top:10px;">
+                    <button class="game-btn" style="padding:10px 20px;font-size:0.8rem;margin:0;" onclick="move2048('up')">⬆️</button>
+                    </div>
+                 <div style="display:flex;justify-content:center;gap:10px;margin-top:5px;">
+                    <button class="game-btn" style="padding:10px 20px;font-size:0.8rem;margin:0;" onclick="move2048('left')">⬅️</button>
+                    <button class="game-btn" style="padding:10px 20px;font-size:0.8rem;margin:0;" onclick="move2048('right')">➡️</button>
+                 </div>
+                 <div style="display:flex;justify-content:center;gap:10px;margin-top:5px;">
+                    <button class="game-btn" style="padding:10px 20px;font-size:0.8rem;margin:0;" onclick="move2048('down')">⬇️</button>
+                </div>
+                <button class="game-btn" onclick="start2048()">New Game</button>
+            `;
+            start2048();
+        }
+
+        function start2048() {
+            board2048 = Array(16).fill(0);
+            score2048 = 0;
+            addRandom2048();
+            addRandom2048();
+            render2048();
+
+            document.onkeydown = (e) => {
+                if (currentGame !== '2048') return;
+                if (e.key === 'ArrowUp') move2048('up');
+                if (e.key === 'ArrowDown') move2048('down');
+                if (e.key === 'ArrowLeft') move2048('left');
+                if (e.key === 'ArrowRight') move2048('right');
+            };
+        }
+
+        function addRandom2048() {
+            let empty = [];
+            board2048.forEach((v, i) => { if (v === 0) empty.push(i); });
+            if (empty.length > 0) {
+                let i = empty[Math.floor(Math.random() * empty.length)];
+                board2048[i] = Math.random() < 0.9 ? 2 : 4;
+            }
+        }
+
+        function render2048() {
+            const grid = document.getElementById('grid2048');
+            if (!grid) return;
+            grid.innerHTML = '';
+            document.getElementById('score2048').textContent = score2048;
+
+            board2048.forEach(val => {
+                const cell = document.createElement('div');
+                cell.style.cssText = `
+                    width:60px;height:60px;background:${get2048Color(val)};
+                    display:flex;align-items:center;justify-content:center;
+                    font-size:1.5rem;font-weight:bold;color:${val > 4 ? 'white' : '#776e65'};
+                    border-radius:5px;
+                `;
+                cell.textContent = val === 0 ? '' : val;
+                grid.appendChild(cell);
+            });
+        }
+
+        function get2048Color(val) {
+            const colors = {
+                0: '#cdc1b4', 2: '#eee4da', 4: '#ede0c8', 8: '#f2b179',
+                16: '#f59563', 32: '#f67c5f', 64: '#f65e3b', 128: '#edcf72',
+                256: '#edcc61', 512: '#edc850', 1024: '#edc53f', 2048: '#edc22e'
+            };
+            return colors[val] || '#3c3a32';
+        }
+
+        function move2048(dir) {
+            // Basic implementation - only shifting for brevity
+            // A full implementation would involve complex merging logic
+            // For this "mini-game" version, let's implement a simplified shift/merge
+            let rotated = [...board2048];
+
+            // Normalize to "Left" shift by rotating board
+            if (dir === 'up') rotated = rotateLeft(board2048);
+            if (dir === 'right') rotated = rotateLeft(rotateLeft(board2048));
+            if (dir === 'down') rotated = rotateLeft(rotateLeft(rotateLeft(board2048)));
+
+            // Process rows
+            let changed = false;
+            for (let i = 0; i < 4; i++) {
+                let row = rotated.slice(i * 4, i * 4 + 4);
+                let newRow = row.filter(x => x); // remove zeros
+                // Merge
+                for (let j = 0; j < newRow.length - 1; j++) {
+                    if (newRow[j] === newRow[j + 1]) {
+                        newRow[j] *= 2;
+                        score2048 += newRow[j];
+                        newRow.splice(j + 1, 1);
+                    }
+                }
+                while (newRow.length < 4) newRow.push(0);
+                if (newRow.join(',') !== row.join(',')) changed = true;
+
+                for (let j = 0; j < 4; j++) rotated[i * 4 + j] = newRow[j];
+            }
+
+            // Rotate back
+            if (dir === 'up') rotated = rotateLeft(rotateLeft(rotateLeft(rotated)));
+            if (dir === 'right') rotated = rotateLeft(rotateLeft(rotated));
+            if (dir === 'down') rotated = rotateLeft(rotated);
+
+            if (changed) {
+                board2048 = rotated;
+                addRandom2048();
+                render2048();
+            }
+        }
+
+        function rotateLeft(arr) {
+            let res = Array(16).fill(0);
+            for (let r = 0; r < 4; r++) {
+                for (let c = 0; c < 4; c++) {
+                    res[3 - c + r * 4] = arr[r * 4 + c]; // Simple rotation
+                    // Actually: (0,0)->(3,0), (0,1)->(2,0) ...
+                    // Let's use simpler index mapping
+                    // new_r = 3-c, new_c = r
+                    // idx = new_r*4 + new_c = (3-c)*4 + r = 12 - 4c + r
+                    // Wait, standard rotation:
+                    // 0 1 2 3      3 7 11 15
+                    // 4 5 6 7  ->  2 6 10 14
+                    // ...
+                }
+            }
+            // Let's just hardcode indices for rotation
+            // 90 deg CCW
+            let newArr = [];
+            for (let i = 0; i < 4; i++) {
+                for (let j = 0; j < 4; j++) {
+                    newArr[i * 4 + j] = arr[j * 4 + (3 - i)];
+                }
+            }
+            return newArr;
+        }
+
+        // FLAPPY BIRD
+        let flappyGame, birdY, birdVel, pipes = [], flappyScore;
+
+        function initFlappy(container) {
+            container.innerHTML = `
+                <h2 class="section-title" style="margin-top: 30px;">🐦 Flappy Bird</h2>
+                <div class="game-score">Score: <span id="flappyScore">0</span></div>
+                <canvas id="flappyCanvas" width="300" height="400" style="border:2px solid var(--primary);border-radius:10px;display:block;margin:0 auto;background:skyblue;cursor:pointer;" onclick="flap()"></canvas>
+                <p style="text-align:center;">Click, Tap, or Space to Flap</p>
+                <button class="game-btn" onclick="startFlappy()">Start Game</button>
+            `;
+        }
+
+        function startFlappy() {
+            const canvas = document.getElementById('flappyCanvas');
+            birdY = 200;
+            birdVel = 0;
+            pipes = [];
+            flappyScore = 0;
+            if (flappyGame) clearInterval(flappyGame);
+
+            document.onkeydown = (e) => {
+                if (currentGame === 'flappy' && e.code === 'Space') flap();
+            };
+
+            const ctx = canvas.getContext('2d');
+
+            flappyGame = setInterval(() => {
+                birdVel += 0.5;
+                birdY += birdVel;
+
+                if (pipes.length === 0 || pipes[pipes.length - 1].x < 150) {
+                    pipes.push({ x: 300, gap: 100 + Math.random() * 150, h: 50 + Math.random() * 200 });
+                }
+
+                pipes.forEach(p => {
+                    p.x -= 2;
+                });
+
+                if (pipes[0] && pipes[0].x < -50) {
+                    pipes.shift();
+                    flappyScore++;
+                    document.getElementById('flappyScore').textContent = flappyScore;
+                }
+
+                // Collision
+                if (birdY > 400 || birdY < 0) gameOverFlappy();
+                pipes.forEach(p => {
+                    if (p.x < 50 && p.x > 0) { // Bird width roughly
+                        if (birdY < p.h || birdY > p.h + 100) gameOverFlappy(); // Gap size 100
+                    }
+                });
+
+                // Draw
+                ctx.fillStyle = 'skyblue';
+                ctx.fillRect(0, 0, 300, 400);
+
+                ctx.fillStyle = 'yellow';
+                ctx.beginPath();
+                ctx.arc(30, birdY, 15, 0, Math.PI * 2);
+                ctx.fill();
+
+                ctx.fillStyle = 'green';
+                pipes.forEach(p => {
+                    ctx.fillRect(p.x, 0, 50, p.h);
+                    ctx.fillRect(p.x, p.h + 100, 50, 400);
+                });
+
+            }, 20);
+        }
+
+        function flap() {
+            birdVel = -8;
+        }
+
+        function gameOverFlappy() {
+            clearInterval(flappyGame);
+            alert('Game Over! Score: ' + flappyScore);
+        }
+
+        // HANGMAN
+        const words = ['JAVASCRIPT', 'PYTHON', 'HTML', 'CSS', 'REACT', 'ANGULAR', 'VUE', 'NODE', 'CODING', 'GAMING'];
+        let hangWord, hangGuess, hangErrors;
+
+        function initHangman(container) {
+            hangWord = words[Math.floor(Math.random() * words.length)];
+            hangGuess = new Set();
+            hangErrors = 0;
+            renderHangman(container);
+        }
+
+        function renderHangman(container) {
+            const display = hangWord.split('').map(l => hangGuess.has(l) ? l : '_').join(' ');
+            const alpha = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+
+            container.innerHTML = `
+                <h2 class="section-title" style="margin-top: 30px;">🔤 Hangman</h2>
+                <div style="font-size:3rem;font-family:monospace;letter-spacing:5px;margin:20px 0;text-align:center;">${display}</div>
+                <div class="game-score">Errors: ${hangErrors}/6</div>
+                <div style="display:flex;flex-wrap:wrap;gap:5px;justify-content:center;max-width:400px;margin:0 auto;">
+                    ${alpha.map(l => `<button onclick="guessHangman('${l}')" style="width:30px;height:30px;${hangGuess.has(l) ? 'opacity:0.3' : ''}" ${hangGuess.has(l) ? 'disabled' : ''}>${l}</button>`).join('')}
+                </div>
+                 <button class="game-btn" onclick="initHangman(document.getElementById('gameContent'))">New Word</button>
+            `;
+
+            if (!display.includes('_')) {
+                setTimeout(() => alert('You Win! 🎉'), 100);
+            }
+            if (hangErrors >= 6) {
+                setTimeout(() => alert('Game Over! Word was: ' + hangWord), 100);
+            }
+        }
+
+        function guessHangman(l) {
+            if (hangErrors >= 6) return;
+            hangGuess.add(l);
+            if (!hangWord.includes(l)) hangErrors++;
+            renderHangman(document.getElementById('gameContent'));
+        }
+
     </script>
 </body>
 
