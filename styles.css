@@ -1471,6 +1471,154 @@ footer {
     font-weight: 500;
 }
 
+/* Play Game Button - Itch.io */
+.play-game-buttons {
+    margin-top: 12px;
+}
+
+.itchio-btn {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(99, 102, 241, 0.25) 100%);
+    padding: 16px 24px;
+    border-radius: 16px;
+    border: 1px solid rgba(99, 102, 241, 0.4);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    box-shadow: 0 4px 20px rgba(99, 102, 241, 0.15);
+}
+
+.itchio-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.6s ease;
+}
+
+.itchio-btn:hover::before {
+    left: 100%;
+}
+
+.itchio-btn:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 12px 40px rgba(99, 102, 241, 0.35);
+    border-color: var(--accent);
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.25) 0%, rgba(99, 102, 241, 0.4) 100%);
+}
+
+.itchio-icon {
+    width: 52px;
+    height: 52px;
+    background: rgba(99, 102, 241, 0.3);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(4px);
+}
+
+.itchio-icon i {
+    width: 28px;
+    height: 28px;
+    color: var(--accent);
+}
+
+.itchio-btn:hover .itchio-icon {
+    background: var(--accent);
+    transform: rotate(-5deg) scale(1.1);
+}
+
+.itchio-btn:hover .itchio-icon i {
+    color: white;
+}
+
+.itchio-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.itchio-label {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 2px;
+}
+
+.itchio-brand {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    font-family: var(--font-heading);
+    letter-spacing: -0.5px;
+}
+
+.itchio-arrow {
+    width: 40px;
+    height: 40px;
+    background: rgba(99, 102, 241, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.itchio-arrow i {
+    width: 20px;
+    height: 20px;
+    color: var(--accent);
+    transition: transform 0.3s ease;
+}
+
+.itchio-btn:hover .itchio-arrow {
+    background: var(--accent);
+}
+
+.itchio-btn:hover .itchio-arrow i {
+    color: white;
+}
+
+.itchio-btn:hover .itchio-arrow i {
+    transform: translate(2px, -2px);
+}
+
+@media (max-width: 600px) {
+    .itchio-btn {
+        padding: 14px 18px;
+        gap: 12px;
+    }
+
+    .itchio-icon {
+        width: 44px;
+        height: 44px;
+    }
+
+    .itchio-icon i {
+        width: 22px;
+        height: 22px;
+    }
+
+    .itchio-brand {
+        font-size: 1.2rem;
+    }
+
+    .itchio-arrow {
+        width: 36px;
+        height: 36px;
+    }
+}
+
 /* Screenshot Gallery */
 .screenshot-gallery {
     background: var(--surface);
@@ -1624,29 +1772,167 @@ footer {
     }
 }
 
+
+/* Mini Game Section */
+.minigame-section {
+    position: relative;
+    padding: 100px 0;
+    background: linear-gradient(180deg, rgba(99, 102, 241, 0.02) 0%, transparent 100%);
+}
+
+.game-header {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.game-subtitle {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
+.game-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background: var(--surface);
+    border: 1px solid var(--surface-border);
+    border-radius: 24px;
+    padding: 40px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+.game-stats {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 32px;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.stat-label {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.stat-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--accent);
+    font-family: var(--font-heading);
+}
+
+.game-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.game-hole {
+    aspect-ratio: 1;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--surface-border);
+    border-radius: 16px;
+    position: relative;
+    overflow: hidden;
+    cursor: crosshair;
+    transition: all 0.3s ease;
+}
+
+.game-hole:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(99, 102, 241, 0.3);
+}
+
+.mole {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 60%;
+    background: radial-gradient(circle at 30% 30%, var(--accent), #4f46e5);
+    border-radius: 50%;
+    box-shadow: 0 0 20px var(--accent-glow);
+    transition: top 0.2s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+    z-index: 2;
+}
+
+.mole.up {
+    top: 20%;
+}
+
+.hole-shadow {
+    position: absolute;
+    bottom: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%;
+    height: 10%;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+    filter: blur(5px);
+    z-index: 1;
+}
+
+.game-controls {
+    display: flex;
+    justify-content: center;
+}
+
+/* Idle State Styling */
+.minigame-section.idle .mole {
+    top: 85%;
+    opacity: 0.3;
+    animation: floating-mole 4s ease-in-out infinite;
+}
+
+.minigame-section.idle .game-hole:nth-child(even) .mole {
+    animation-delay: 1s;
+}
+
+.minigame-section.idle .game-hole:nth-child(3n) .mole {
+    animation-delay: 2s;
+}
+
+@keyframes floating-mole {
+
+    0%,
+    100% {
+        transform: translate(-50%, 0);
+    }
+
+    50% {
+        transform: translate(-50%, -10px);
+    }
+}
+
+/* Hit Effect */
+.mole.hit {
+    transform: translateX(-50%) scale(0.8);
+    opacity: 0.5;
+    background: white;
+}
+
 @media (max-width: 600px) {
-    .project-layout {
-        gap: 24px;
-    }
-
-    .featured-title {
-        font-size: 1.5rem;
-    }
-
-    .featured-info {
-        padding: 20px;
-    }
-
-    .project-content {
+    .game-container {
         padding: 24px;
+        margin: 0 16px;
     }
 
-    .gallery-grid {
-        grid-template-columns: 1fr;
+    .game-grid {
+        gap: 12px;
     }
 
-    .sidebar-project-img {
-        width: 70px;
-        height: 50px;
+    .stat-value {
+        font-size: 1.5rem;
     }
 }

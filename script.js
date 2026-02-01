@@ -114,3 +114,114 @@ document.addEventListener('DOMContentLoaded', () => {
     // Optional: Auto-play slider
     // setInterval(() => showSlide(currentSlide + 1), 5000);
 });
+
+// Whack-a-Mole Game Logic
+document.addEventListener('DOMContentLoaded', () => {
+    const holes = document.querySelectorAll('.game-hole');
+    const scoreBoard = document.querySelector('#game-score');
+    const timeBoard = document.querySelector('#game-time');
+    const startBtn = document.querySelector('#start-game');
+    const gameSection = document.querySelector('.minigame-section');
+
+    let lastHole;
+    let timeUp = false;
+    let score = 0;
+    let countdown;
+    let gameTimer;
+
+    // Set idle state initially
+    if (gameSection) gameSection.classList.add('idle');
+
+    function randomTime(min, max) {
+        return Math.round(Math.random() * (max - min) + min);
+    }
+
+    function randomHole(holes) {
+        const idx = Math.floor(Math.random() * holes.length);
+        const hole = holes[idx];
+        if (hole === lastHole) {
+            return randomHole(holes);
+        }
+        lastHole = hole;
+        return hole;
+    }
+
+    function peep() {
+        const time = randomTime(600, 1200);
+        const hole = randomHole(holes);
+        const mole = hole.querySelector('.mole');
+        mole.classList.add('up');
+
+        setTimeout(() => {
+            mole.classList.remove('up');
+            if (!timeUp) peep();
+        }, time);
+    }
+
+    function startGame() {
+        // Reset Stats
+        score = 0;
+        scoreBoard.textContent = 0;
+        timeUp = false;
+        startBtn.disabled = true;
+        startBtn.innerHTML = '<i data-lucide="refresh-cw"></i> Playing...';
+        lucide.createIcons();
+
+        // Remove idle state
+        gameSection.classList.remove('idle');
+
+        // Start Mole Peeping
+        peep();
+
+        // Timer Logic
+        let timeLeft = 30;
+        timeBoard.textContent = timeLeft;
+
+        countdown = setInterval(() => {
+            timeLeft--;
+            timeBoard.textContent = timeLeft;
+            if (timeLeft <= 0) {
+                clearInterval(countdown);
+            }
+        }, 1000);
+
+        gameTimer = setTimeout(() => {
+            timeUp = true;
+            startBtn.disabled = false;
+            startBtn.innerHTML = '<i data-lucide="play"></i> Play Again';
+            lucide.createIcons();
+            gameSection.classList.add('idle');
+            alert(`Game Over! Your score: ${score}`);
+        }, 30000);
+    }
+
+    holes.forEach(hole => {
+        const mole = hole.querySelector('.mole');
+        mole.addEventListener('click', (e) => {
+            if (!e.isTrusted) return; // Cheater!
+            if (mole.classList.contains('up')) {
+                score++;
+                mole.classList.remove('up');
+                mole.classList.add('hit');
+                setTimeout(() => mole.classList.remove('hit'), 200);
+                scoreBoard.textContent = score;
+            }
+        });
+
+        // Touch support
+        mole.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            if (mole.classList.contains('up')) {
+                score++;
+                mole.classList.remove('up');
+                mole.classList.add('hit');
+                setTimeout(() => mole.classList.remove('hit'), 200);
+                scoreBoard.textContent = score;
+            }
+        });
+    });
+
+    if (startBtn) {
+        startBtn.addEventListener('click', startGame);
+    }
+});
