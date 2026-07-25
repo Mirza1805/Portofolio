@@ -1,4 +1,14 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Navbar Scroll Effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+
     // Mobile Menu Toggle
     const mobileBtn = document.querySelector('.mobile-menu-btn');
     const navLinks = document.querySelector('.nav-links');
@@ -42,8 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, observerOptions);
 
-    document.querySelectorAll('.section').forEach(section => {
-        section.classList.add('fade-in-section');
+    document.querySelectorAll('.fade-in-section').forEach(section => {
         observer.observe(section);
     });
 });
@@ -111,8 +120,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.key === 'ArrowRight') showSlide(currentSlide + 1);
     });
 
-    // Optional: Auto-play slider
-    // setInterval(() => showSlide(currentSlide + 1), 5000);
+    // Auto-play slider
+    setInterval(() => showSlide(currentSlide + 1), 3000);
 });
 
 // Whack-a-Mole Game Logic
@@ -224,4 +233,58 @@ document.addEventListener('DOMContentLoaded', () => {
     if (startBtn) {
         startBtn.addEventListener('click', startGame);
     }
+});
+
+// Image Lightbox with Zoom
+document.addEventListener('DOMContentLoaded', () => {
+    // Check if gallery exists to avoid unnecessary DOM nodes
+    const galleryImages = document.querySelectorAll('.gallery-thumb img');
+    if (galleryImages.length === 0) return;
+
+    const lightbox = document.createElement('div');
+    lightbox.className = 'lightbox';
+    
+    const lightboxImg = document.createElement('img');
+    lightboxImg.className = 'lightbox-img';
+    
+    const closeBtn = document.createElement('button');
+    closeBtn.className = 'lightbox-close';
+    closeBtn.innerHTML = '<i data-lucide="x"></i>';
+    
+    lightbox.appendChild(lightboxImg);
+    lightbox.appendChild(closeBtn);
+    document.body.appendChild(lightbox);
+    
+    if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+    }
+    
+    galleryImages.forEach(img => {
+        img.addEventListener('click', () => {
+            lightboxImg.src = img.src;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+    });
+    
+    const closeLightbox = () => {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+        scale = 1;
+        lightboxImg.style.transform = `scale(${scale})`;
+    };
+    
+    closeBtn.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) closeLightbox();
+    });
+    
+    // Zoom feature
+    let scale = 1;
+    lightboxImg.addEventListener('wheel', (e) => {
+        e.preventDefault();
+        scale += e.deltaY < 0 ? 0.25 : -0.25;
+        scale = Math.max(0.5, Math.min(scale, 4));
+        lightboxImg.style.transform = `scale(${scale})`;
+    });
 });

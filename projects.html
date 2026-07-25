@@ -11,7 +11,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Inter:wght@300;400;600&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=2">
     <link rel="icon" type="image/png" href="aset/logo.png">
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
@@ -21,12 +21,13 @@
 
     <header class="navbar">
         <a href="index.html#home" class="logo-link">
-            <img src="aset/logo.png" alt="Mirza Logo" class="nav-logo">
+            <img src="aset/logo.png" alt="Mirza Logo" class="nav-logo" style="height: 36px; width: auto;">
         </a>
         <nav class="nav-links">
             <a href="index.html#home">Home</a>
             <a href="index.html#about">About</a>
             <a href="projects.html" class="active">Projects</a>
+            <a href="index.html#skills">Skills</a>
             <a href="index.html#contact">Contact</a>
         </nav>
         <button class="mobile-menu-btn" aria-label="Toggle menu">
@@ -44,64 +45,112 @@
                 <div class="projects-grid">
                     <!-- Project Card 1 -->
                     <article class="project-card">
-                        <img src="aset/Projek/Contractkiller/ContractKiller.png" alt="ContractKiller" class="card-bg">
-                        <div class="card-overlay">
+                        <div class="card-img-wrapper">
+                            <img src="aset/Projek/Contractkiller/ContractKiller.png" alt="ContractKiller"
+                                class="card-bg" loading="lazy">
+                        </div>
+                        <div class="card-content">
+                            <div class="card-tags">
+                                <span class="tag">Unity</span>
+                                <span class="tag">C#</span>
+                            </div>
                             <h3 class="card-title">ContractKiller</h3>
-                            <p class="card-desc">Unity, C#</p>
-                            <a href="contractkiller.html" class="card-link">View Project <i
+                            <p class="card-desc">An action-packed game with FSM-based NPC behaviors and complex gameplay
+                                mechanics.</p>
+                            <a href="contractkiller.html" class="card-link btn outline small">View Project <i
                                     data-lucide="arrow-up-right"></i></a>
                         </div>
                     </article>
 
                     <!-- Project Card 2 -->
-
                     <article class="project-card">
-                        <img src="aset/Projek/PowerShoes/1.jpg" alt="PowerShoes" class="card-bg">
-                        <div class="card-overlay">
+                        <div class="card-img-wrapper">
+                            <img src="aset/Projek/PowerShoes/1.jpg" alt="PowerShoes" class="card-bg" loading="lazy">
+                        </div>
+                        <div class="card-content">
+                            <div class="card-tags">
+                                <span class="tag">HTML</span>
+                                <span class="tag">CSS</span>
+                            </div>
                             <h3 class="card-title">PowerShoes</h3>
-                            <p class="card-desc">HTML, CSS</p>
-                            <a href="powershoes.html" class="card-link">View Project <i
+                            <p class="card-desc">A responsive e-commerce web interface for a footwear brand.</p>
+                            <a href="powershoes.html" class="card-link btn outline small">View Project <i
                                     data-lucide="arrow-up-right"></i></a>
                         </div>
                     </article>
+
                     <!-- Project Card 3 -->
                     <article class="project-card">
-                        <img src="aset/Projek/AIConverse/1.png" alt="AIConverse" class="card-bg">
-                        <div class="card-overlay">
+                        <div class="card-img-wrapper">
+                            <img src="aset/Projek/AIConverse/1.png" alt="AIConverse" class="card-bg" loading="lazy">
+                        </div>
+                        <div class="card-content">
+                            <div class="card-tags">
+                                <span class="tag">PHP</span>
+                                <span class="tag">JS</span>
+                                <span class="tag">HTML/CSS</span>
+                            </div>
                             <h3 class="card-title">AIConverse</h3>
-                            <p class="card-desc">PHP, HTML, CSS, JS</p>
-                            <a href="aiconverse.html" class="card-link">View Project <i
+                            <p class="card-desc">A web-based AI chat application interface with interactive elements.
+                            </p>
+                            <a href="aiconverse.html" class="card-link btn outline small">View Project <i
                                     data-lucide="arrow-up-right"></i></a>
                         </div>
                     </article>
+
                     <!-- Project Card 4 -->
                     <article class="project-card">
-                        <img src="aset/Projek/Ageoftheemperor/1.png" alt="Age of the Emperor" class="card-bg">
-                        <div class="card-overlay">
+                        <div class="card-img-wrapper">
+                            <img src="aset/Projek/Ageoftheemperor/1.png" alt="Age of the Emperor" class="card-bg"
+                                loading="lazy">
+                        </div>
+                        <div class="card-content">
+                            <div class="card-tags">
+                                <span class="tag">Java</span>
+                                <span class="tag">Eclipse</span>
+                            </div>
                             <h3 class="card-title">Age of the Emperor</h3>
-                            <p class="card-desc">Eclipse, Java</p>
-                            <a href="ageofemperor.html" class="card-link">View Project <i
+                            <p class="card-desc">A text-based RPG with narrative choices, strategic combat, and player
+                                progression.</p>
+                            <a href="ageofemperor.html" class="card-link btn outline small">View Project <i
                                     data-lucide="arrow-up-right"></i></a>
                         </div>
                     </article>
 
                     <!-- Project Card 5 -->
                     <article class="project-card">
-                        <img src="aset/Projek/textrpg/1.png" alt="TextRPG" class="card-bg">
-                        <div class="card-overlay">
+                        <div class="card-img-wrapper">
+                            <img src="aset/Projek/textrpg/1.png" alt="TextRPG" class="card-bg" loading="lazy">
+                        </div>
+                        <div class="card-content">
+                            <div class="card-tags">
+                                <span class="tag">C++</span>
+                                <span class="tag">CodeBlocks</span>
+                            </div>
                             <h3 class="card-title">TextRPG</h3>
-                            <p class="card-desc">CodeBlocks, C++</p>
-                            <a href="textrpg.html" class="card-link">View Project <i
+                            <p class="card-desc">A console-based text RPG demonstrating core C++ programming concepts.
+                            </p>
+                            <a href="textrpg.html" class="card-link btn outline small">View Project <i
                                     data-lucide="arrow-up-right"></i></a>
                         </div>
                     </article>
+
                     <!-- Project Card 6 -->
                     <article class="project-card">
-                        <img src="aset/Projek/ChillRoom/1.png" alt="ChillRoom" class="card-bg">
-                        <div class="card-overlay">
+                        <div class="card-img-wrapper">
+                            <img src="aset/Projek/ChillRoom/1.png" alt="ChillRoom" class="card-bg" loading="lazy">
+                        </div>
+                        <div class="card-content">
+                            <div class="card-tags">
+                                <span class="tag">HTML</span>
+                                <span class="tag">CSS</span>
+                                <span class="tag">JS</span>
+                            </div>
                             <h3 class="card-title">ChillRoom</h3>
-                            <p class="card-desc">HTML, CSS, JS</p>
-                            <a href="chill.html" class="card-link">View Project <i data-lucide="arrow-up-right"></i></a>
+                            <p class="card-desc">A relaxing interactive web environment with ambient sounds and visuals.
+                            </p>
+                            <a href="chill.html" class="card-link btn outline small">View Project <i
+                                    data-lucide="arrow-up-right"></i></a>
                         </div>
                     </article>
                 </div>
