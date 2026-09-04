@@ -1,0 +1,69 @@
+/* Animations Container */
+.animation-layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+/* Minimalist Cat */
+.cat-container {
+    position: absolute;
+    bottom: 30px;
+    right: 50px;
+    width: 60px;
+    height: 60px;
+    opacity: 0.8;
+}
+
+.cat-svg {
+    width: 100%;
+    height: 100%;
+    fill: var(--text-muted);
+}
+
+.cat-tail {
+    transform-origin: 80% 80%;
+    animation: tailWag 4s ease-in-out infinite;
+}
+
+@keyframes tailWag {
+    0%, 100% { transform: rotate(0deg); }
+    50% { transform: rotate(15deg); }
+}
+
+.cat-breathe {
+    transform-origin: bottom center;
+    animation: catBreathe 3s ease-in-out infinite;
+}
+
+@keyframes catBreathe {
+    0%, 100% { transform: scaleY(1); }
+    50% { transform: scaleY(1.05); }
+}
+
+/* Minimalist Passing Car */
+.car-container {
+    position: absolute;
+    bottom: 20px;
+    left: -100px; /* Start off-screen */
+    width: 80px;
+    height: 30px;
+    opacity: 0.5;
+    animation: passCar 20s linear infinite;
+}
+
+.car-svg {
+    width: 100%;
+    height: 100%;
+    fill: var(--text-muted);
+}
+
+@keyframes passCar {
+    0% { transform: translateX(-100px); }
+    100% { transform: translateX(calc(100vw + 100px)); }
+}

@@ -1,0 +1,22 @@
+:root {
+    /* Professional Dark Aesthetic Palette */
+    --bg: #09090b; /* Very dark zinc */
+    --card-bg: rgba(24, 24, 27, 0.7); /* Zinc-900 with transparency */
+    --card-bg-hover: rgba(39, 39, 42, 0.8); /* Zinc-800 */
+    --primary: #ffffff;      /* Pure white for emphasis */
+    --secondary: #a1a1aa;    /* Zinc-400 for secondary elements */
+    --accent: #3b82f6;       /* Subtle blue for small accents if needed */
+    
+    --text-main: #fafafa;
+    --text-muted: #a1a1aa;
+    
+    --border: rgba(255, 255, 255, 0.05);
+    --border-highlight: rgba(255, 255, 255, 0.15);
+    
+    --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 16px 40px rgba(0, 0, 0, 0.5);
+    --shadow-neon: 0 0 0 transparent; /* No neon */
+    
+    --font-heading: 'Quicksand', sans-serif;
+    --font-body: 'Inter', sans-serif;
+}

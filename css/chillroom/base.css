@@ -1,0 +1,54 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: var(--bg);
+    font-family: var(--font-body);
+    overflow-x: hidden;
+    color: var(--text-main);
+    transition: background 0.5s ease;
+}
+
+/* Main Container */
+.main-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 20px 40px;
+    position: relative;
+    z-index: 10;
+}
+
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    margin-bottom: 40px;
+    color: var(--primary);
+    text-align: center;
+    font-weight: 500;
+    letter-spacing: 2px;
+}
+
+/* Hide scrollbar for minimalist look */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--card-bg);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--card-bg-hover);
+}
