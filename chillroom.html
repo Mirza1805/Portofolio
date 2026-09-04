@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="id">
 
 <head>
@@ -179,6 +179,7 @@
             <input type="range" min="0" max="200" value="50" class="volume-slider" id="volumeSlider"
                 oninput="setVolume(this.value)" title="Volume">
         </div>
+
         <button class="music-btn paused" id="musicBtn" onclick="toggleMusic()">🔇</button>
     </div>
 
@@ -208,7 +209,7 @@
                     'controls': 0,
                     'disablekb': 1,
                     'loop': 1,
-                    'playlist': 'jfKfPfyJRdk'
+                    'playlist': 'jfKfPfyJRdk,rUxyKA_-grg,4xDzrUhVKcg,5qap5aO4i9A,5yx6BWlEVcY'
                 },
                 events: {
                     'onReady': onPlayerReady
@@ -222,14 +223,14 @@
             document.getElementById('volumeSlider').value = vol;
         }
 
-                function toggleMusic() {
+        function toggleMusic() {
             const btn = document.getElementById('musicBtn');
             if (!player || !player.playVideo) return;
 
             if (isMusicPlaying) {
                 player.pauseVideo();
                 isMusicPlaying = false;
-                btn.textContent = 'ðŸ”‡';
+                btn.textContent = '🔇';
                 btn.classList.add('paused');
             } else {
                 player.playVideo();

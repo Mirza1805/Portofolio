@@ -6,7 +6,11 @@
 
 body {
     min-height: 100vh;
-    background: var(--bg);
+    background-color: var(--bg);
+    background-image: url('../aset/abstract-bg.svg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
     font-family: var(--font-body);
     overflow-x: hidden;
     color: var(--text-main);

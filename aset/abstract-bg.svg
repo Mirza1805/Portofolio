@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" preserveAspectRatio="none">
+    <defs>
+        <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#09090b" />
+            <stop offset="100%" stop-color="#18181b" />
+        </linearGradient>
+        <radialGradient id="g2" cx="30%" cy="20%" r="70%">
+            <stop offset="0%" stop-color="#27272a" stop-opacity="0.8" />
+            <stop offset="100%" stop-color="#09090b" stop-opacity="0" />
+        </radialGradient>
+        <radialGradient id="g3" cx="80%" cy="80%" r="60%">
+            <stop offset="0%" stop-color="#1f2937" stop-opacity="0.6" />
+            <stop offset="100%" stop-color="#09090b" stop-opacity="0" />
+        </radialGradient>
+        <filter id="noise">
+            <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
+            <feColorMatrix type="matrix" values="1 0 0 0 0, 0 1 0 0 0, 0 0 1 0 0, 0 0 0 0.05 0"/>
+        </filter>
+    </defs>
+    
+    <!-- Base -->
+    <rect width="1920" height="1080" fill="url(#g1)" />
+    
+    <!-- Abstract Shapes -->
+    <path d="M0,400 C300,600 600,200 900,400 C1200,600 1500,100 1920,300 L1920,0 L0,0 Z" fill="url(#g2)" />
+    <path d="M1920,800 C1500,600 1200,1000 800,800 C400,600 200,900 0,700 L0,1080 L1920,1080 Z" fill="url(#g3)" />
+    
+    <!-- Subtle Accents -->
+    <path d="M-100,500 C400,200 800,900 1200,600 C1600,300 2000,700 2100,500" stroke="#3b82f6" stroke-width="2" fill="none" opacity="0.1" />
+    <path d="M-100,600 C400,300 800,1000 1200,700 C1600,400 2000,800 2100,600" stroke="#a1a1aa" stroke-width="1" fill="none" opacity="0.05" />
+
+    <!-- Noise Texture -->
+    <rect width="1920" height="1080" style="pointer-events:none;" filter="url(#noise)" />
+</svg>
