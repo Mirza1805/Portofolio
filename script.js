@@ -243,22 +243,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const lightbox = document.createElement('div');
     lightbox.className = 'lightbox';
-    
+
     const lightboxImg = document.createElement('img');
     lightboxImg.className = 'lightbox-img';
-    
+
     const closeBtn = document.createElement('button');
     closeBtn.className = 'lightbox-close';
     closeBtn.innerHTML = '<i data-lucide="x"></i>';
-    
+
     lightbox.appendChild(lightboxImg);
     lightbox.appendChild(closeBtn);
     document.body.appendChild(lightbox);
-    
+
     if (typeof lucide !== 'undefined') {
         lucide.createIcons();
     }
-    
+
     galleryImages.forEach(img => {
         img.addEventListener('click', () => {
             lightboxImg.src = img.src;
@@ -266,19 +266,19 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.style.overflow = 'hidden';
         });
     });
-    
+
     const closeLightbox = () => {
         lightbox.classList.remove('active');
         document.body.style.overflow = '';
         scale = 1;
         lightboxImg.style.transform = `scale(${scale})`;
     };
-    
+
     closeBtn.addEventListener('click', closeLightbox);
     lightbox.addEventListener('click', (e) => {
         if (e.target === lightbox) closeLightbox();
     });
-    
+
     // Zoom feature
     let scale = 1;
     lightboxImg.addEventListener('wheel', (e) => {
