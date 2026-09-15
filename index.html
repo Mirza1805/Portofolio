@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -58,8 +58,10 @@
         <nav class="nav-links">
             <a href="#home" class="active">Home</a>
             <a href="#about">About</a>
-            <a href="#projects">Projects</a>
             <a href="#skills">Skills</a>
+            <a href="#experience">Experience</a>
+            <a href="#projects">Projects</a>
+            <a href="#certificates">Certificates</a>
             <a href="#contact">Contact</a>
         </nav>
         <button class="mobile-menu-btn" aria-label="Toggle menu">
@@ -179,6 +181,75 @@
             </div>
         </section>
 
+        <!-- SKILLS SECTION -->
+        <section id="skills" class="section skills-section fade-in-section">
+            <div class="container">
+                <span class="section-label">EXPERTISE</span>
+                <h2 class="section-title">Technical Skills</h2>
+
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <div class="skill-header">
+                            <i data-lucide="gamepad-2"></i>
+                            <h3>Game Development</h3>
+                        </div>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Gameplay Programming</span>
+                            <span class="skill-tag">Game Mechanics</span>
+                            <span class="skill-tag">Finite State Machine</span>
+                            <span class="skill-tag">NPC Behavior</span>
+                            <span class="skill-tag">Debugging</span>
+                            <span class="skill-tag">Playtesting</span>
+                            <span class="skill-tag">Game Testing</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <div class="skill-header">
+                            <i data-lucide="code-2"></i>
+                            <h3>Web & Software Development</h3>
+                        </div>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Front-End Development</span>
+                            <span class="skill-tag">Responsive Web Design</span>
+                            <span class="skill-tag">Object-Oriented Programming</span>
+                            <span class="skill-tag">Application Development</span>
+                            <span class="skill-tag">Database Fundamentals</span>
+                            <span class="skill-tag">System Logic</span>
+                            <span class="skill-tag">Debugging</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <div class="skill-header">
+                            <i data-lucide="check-circle"></i>
+                            <h3>QA Fundamentals</h3>
+                        </div>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Functional Testing</span>
+                            <span class="skill-tag">Test Case Design</span>
+                            <span class="skill-tag">Bug Reporting</span>
+                            <span class="skill-tag">SDLC & STLC Fundamentals</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <div class="skill-header">
+                            <i data-lucide="database"></i>
+                            <h3>Database & Automation</h3>
+                        </div>
+                        <div class="skill-tags">
+                            <span class="skill-tag">MySQL</span>
+                            <span class="skill-tag">MongoDB</span>
+                            <span class="skill-tag">KNIME</span>
+                            <span class="skill-tag">Data Processing</span>
+                            <span class="skill-tag">Workflow Automation</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- TOOLS & TECHNOLOGIES -->
         <section class="tools-strip fade-in-section">
             <div class="container">
@@ -218,6 +289,30 @@
                             style="width: 24px; height: 24px; object-fit: contain; filter: brightness(0) invert(1);">
                         Knime
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience SECTION -->
+        <section id="experience" class="experience-section fade-in-section">
+            <div class="container">
+                <span class="section-label">EXPERIENCE</span>
+                <h2 class="section-title">Work Experience</h2>
+
+                <div class="experience-grid">
+                    <!-- Experience Card 1 -->
+                    <article class="experience-card">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error accusamus nobis accusantium et
+                            nostrum doloribus voluptate, ipsam maxime dignissimos cumque consequuntur, saepe dolorem
+                            veniam, repellendus vel nisi ut eum quod!</p>
+                    </article>
+
+                    <!-- Experience Card 2 -->
+                    <article class="experience-card">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error accusamus nobis accusantium et
+                            nostrum doloribus voluptate, ipsam maxime dignissimos cumque consequuntur, saepe dolorem
+                            veniam, repellendus vel nisi ut eum quod!</p>
+                    </article>
                 </div>
             </div>
         </section>
@@ -311,79 +406,87 @@
             </div>
         </section>
 
-        <!-- SKILLS SECTION -->
-        <section id="skills" class="section skills-section fade-in-section">
+        <!-- CERTIFICATES SECTION -->
+        <section id="certificates" class="section certificates-section fade-in-section">
             <div class="container">
-                <span class="section-label">EXPERTISE</span>
-                <h2 class="section-title">Technical Skills</h2>
+                <span class="section-label">ACHIEVEMENTS</span>
+                <h2 class="section-title">My Certificates</h2>
 
-                <div class="skills-grid">
-                    <div class="skill-category">
-                        <div class="skill-header">
-                            <i data-lucide="gamepad-2"></i>
-                            <h3>Game Development</h3>
-                        </div>
-                        <div class="skill-tags">
-                            <span class="skill-tag">Gameplay Programming</span>
-                            <span class="skill-tag">Game Mechanics</span>
-                            <span class="skill-tag">Finite State Machine</span>
-                            <span class="skill-tag">NPC Behavior</span>
-                            <span class="skill-tag">Debugging</span>
-                            <span class="skill-tag">Playtesting</span>
-                            <span class="skill-tag">Game Testing</span>
+                <div class="certificates-grid" id="certificatesGrid">
+                    <!-- Certificate 1 -->
+                    <div class="cert-card hover-zoom"
+                        data-cert='["aset/sertifikat/Sertifikasi Data Analis BNSP/Sertifikasi Data Analis BNSP.jpg","aset/sertifikat/Sertifikasi Data Analis BNSP/Sertifikasi Data Analis BNSP 2.jpg"]'>
+                        <div class="cert-img-wrapper">
+                            <img src="aset/sertifikat/Sertifikasi Data Analis BNSP/Sertifikasi Data Analis BNSP.jpg"
+                                alt="Sertifikasi Data Analis BNSP" loading="lazy">
+                            <span class="cert-badge"><i data-lucide="file-text"></i> 2 Pages</span>
+                            <div class="cert-overlay">
+                                <div class="cert-overlay-content">
+                                    <h3 class="cert-title">Sertifikasi Data Analis BNSP</h3>
+                                    <p class="cert-category">Professional Certification</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="skill-category">
-                        <div class="skill-header">
-                            <i data-lucide="code-2"></i>
-                            <h3>Web & Software Development</h3>
-                        </div>
-                        <div class="skill-tags">
-                            <span class="skill-tag">Front-End Development</span>
-                            <span class="skill-tag">Responsive Web Design</span>
-                            <span class="skill-tag">Object-Oriented Programming</span>
-                            <span class="skill-tag">Application Development</span>
-                            <span class="skill-tag">Database Fundamentals</span>
-                            <span class="skill-tag">System Logic</span>
-                            <span class="skill-tag">Debugging</span>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-category">
-                        <div class="skill-header">
-                            <i data-lucide="check-circle"></i>
-                            <h3>QA Fundamentals</h3>
-                        </div>
-                        <div class="skill-tags">
-                            <span class="skill-tag">Functional Testing</span>
-                            <span class="skill-tag">Test Case Design</span>
-                            <span class="skill-tag">Bug Reporting</span>
-                            <span class="skill-tag">SDLC & STLC Fundamentals</span>
+                    <!-- Certificate 2 -->
+                    <div class="cert-card hover-zoom"
+                        data-cert='["aset/sertifikat/HI-Technology 2026/HI-Technology 2026.jpg"]'>
+                        <div class="cert-img-wrapper">
+                            <img src="aset/sertifikat/HI-Technology 2026/HI-Technology 2026.jpg"
+                                alt="HI-Technology 2026" loading="lazy">
+                            <div class="cert-overlay">
+                                <div class="cert-overlay-content">
+                                    <h3 class="cert-title">HI-Technology 2026</h3>
+                                    <p class="cert-category">Competition</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="skill-category">
-                        <div class="skill-header">
-                            <i data-lucide="database"></i>
-                            <h3>Database & Automation</h3>
-                        </div>
-                        <div class="skill-tags">
-                            <span class="skill-tag">MySQL</span>
-                            <span class="skill-tag">MongoDB</span>
-                            <span class="skill-tag">KNIME</span>
-                            <span class="skill-tag">Data Processing</span>
-                            <span class="skill-tag">Workflow Automation</span>
+                    <!-- Certificate 3 -->
+                    <div class="cert-card hover-zoom" data-cert='["aset/sertifikat/Cybersecurity/Cybersecurity.jpg"]'>
+                        <div class="cert-img-wrapper">
+                            <img src="aset/sertifikat/Cybersecurity/Cybersecurity.jpg" alt="Cybersecurity"
+                                loading="lazy">
+                            <div class="cert-overlay">
+                                <div class="cert-overlay-content">
+                                    <h3 class="cert-title">Cybersecurity</h3>
+                                    <p class="cert-category">Online Course</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
+
+                <div style="text-align: center; margin-top: 48px;">
+                    <a href="certificates.html" class="btn primary">View All Certificates <i
+                            data-lucide="arrow-right"></i></a>
+                </div>
             </div>
+            <!-- Certificate Lightbox Modal -->
+            <div class="cert-lightbox" id="certLightbox">
+                <button class="cert-lightbox-close" id="certLightboxClose" aria-label="Close">
+                    <i data-lucide="x"></i>
+                </button>
+                <button class="cert-lightbox-nav cert-nav-prev" id="certNavPrev" aria-label="Previous">
+                    <i data-lucide="chevron-left"></i>
+                </button>
+                <div class="cert-lightbox-content">
+                    <img src="" alt="Certificate Preview" class="cert-lightbox-img" id="certLightboxImg">
+                </div>
+                <button class="cert-lightbox-nav cert-nav-next" id="certNavNext" aria-label="Next">
+                    <i data-lucide="chevron-right"></i>
+                </button>
+                <div class="cert-lightbox-counter" id="certLightboxCounter">1 / 1</div>
+            </div>
+
         </section>
 
         <!-- CONTACT SECTION -->
         <section id="contact" class="section contact fade-in-section">
             <div class="container contact-container">
-                <h2 class="contact-heading">Have a project, opportunity, or interesting idea? Let’s discuss it.</h2>
+                <h2 class="contact-heading">Have a project, opportunity, or interesting idea? Let's discuss it.</h2>
                 <p class="contact-subtitle">I'm currently open for new opportunities and collaborations.</p>
 
                 <div class="contact-grid">

@@ -288,3 +288,137 @@ document.addEventListener('DOMContentLoaded', () => {
         lightboxImg.style.transform = `scale(${scale})`;
     });
 });
+
+// Certificate Lightbox
+document.addEventListener('DOMContentLoaded', () => {
+    const certCards = document.querySelectorAll('.cert-card[data-cert]');
+    if (certCards.length === 0) return;
+
+    const lightbox = document.getElementById('certLightbox');
+    const lightboxImg = document.getElementById('certLightboxImg');
+    const closeBtn = document.getElementById('certLightboxClose');
+    const prevBtn = document.getElementById('certNavPrev');
+    const nextBtn = document.getElementById('certNavNext');
+    const counter = document.getElementById('certLightboxCounter');
+
+    if (!lightbox) return;
+
+    let currentImages = [];
+    let currentIndex = 0;
+
+    function updateLightbox() {
+        lightboxImg.src = currentImages[currentIndex];
+        const total = currentImages.length;
+
+        // Update counter
+        counter.textContent = `${currentIndex + 1} / ${total}`;
+
+        // Show/hide nav and counter based on page count
+        if (total <= 1) {
+            prevBtn.classList.add('hidden');
+            nextBtn.classList.add('hidden');
+            counter.classList.add('hidden');
+        } else {
+            prevBtn.classList.remove('hidden');
+            nextBtn.classList.remove('hidden');
+            counter.classList.remove('hidden');
+        }
+    }
+
+    function openLightbox(images, startIndex) {
+        currentImages = images;
+        currentIndex = startIndex || 0;
+        updateLightbox();
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    function goNext() {
+        if (currentImages.length <= 1) return;
+        currentIndex = (currentIndex + 1) % currentImages.length;
+        updateLightbox();
+    }
+
+    function goPrev() {
+        if (currentImages.length <= 1) return;
+        currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+        updateLightbox();
+    }
+
+    // Open on card click
+    certCards.forEach(card => {
+        card.addEventListener('click', () => {
+            try {
+                const images = JSON.parse(card.getAttribute('data-cert'));
+                if (images && images.length > 0) {
+                    openLightbox(images, 0);
+                }
+            } catch (e) {
+                console.error('Invalid cert data:', e);
+            }
+        });
+    });
+
+    // Close button
+    closeBtn.addEventListener('click', closeLightbox);
+
+    // Click outside image to close
+    lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox || e.target.classList.contains('cert-lightbox-content')) {
+            closeLightbox();
+        }
+    });
+
+    // Navigation buttons
+    nextBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        goNext();
+    });
+
+    prevBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        goPrev();
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (!lightbox.classList.contains('active')) return;
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowRight') goNext();
+        if (e.key === 'ArrowLeft') goPrev();
+    });
+});
+
+// Toggle All Certificates
+let certsExpanded = false;
+function toggleAllCerts() {
+    const hiddenCards = document.querySelectorAll('.cert-card.cert-hidden, .cert-card.cert-visible');
+    const btn = document.getElementById('viewAllCerts');
+
+    certsExpanded = !certsExpanded;
+
+    hiddenCards.forEach(card => {
+        if (certsExpanded) {
+            card.classList.remove('cert-hidden');
+            card.classList.add('cert-visible');
+        } else {
+            card.classList.remove('cert-visible');
+            card.classList.add('cert-hidden');
+        }
+    });
+
+    if (certsExpanded) {
+        btn.innerHTML = 'Show Less <i data-lucide="arrow-up"></i>';
+    } else {
+        btn.innerHTML = 'View All Certificates <i data-lucide="arrow-right"></i>';
+    }
+
+    if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+    }
+}
