@@ -1,0 +1,83 @@
+1. Capybro Studio
+
+Job Title: Game Developer
+Employment Type: Project-based / Work Experience
+Period: May 8, 2025 – March 24, 2026
+
+Short Description:
+Developed and shipped ContractKiller, a 2D top-down shooter game using Unity and C#. The game features mission-based combat, multiple enemy types with unique behaviors, and AI systems implemented using Finite State Machines (FSM).
+
+Key Responsibilities:
+
+Developed core gameplay systems.
+Implemented player controls.
+Developed combat mechanics.
+Implemented mission-based gameplay.
+Developed enemy behavior.
+Implemented enemy AI using Finite State Machines (FSM).
+Performed debugging and bug fixing.
+Conducted playtesting.
+Contributed to the overall game development process.
+
+Tools & Technologies:
+
+Unity
+C#
+Finite State Machine (FSM)
+Git / GitHub*
+
+*Git/GitHub is listed in the portfolio as a technology/tool, but the source does not explicitly state that it was specifically used at Capybro Studio.
+
+2. Lab IntSys
+
+Job Title: Programmer
+Employment Type: Internship / Research & Development
+Period: May 5, 2025 – February 24, 2026
+
+Short Description:
+Gained hands-on experience in project-based game development, contributing throughout the development workflow from planning and implementation to testing and iteration while collaborating with team members.
+
+Key Responsibilities:
+
+Participated in project planning.
+Performed programming and implementation.
+Conducted testing.
+Performed iteration based on testing results.
+Collaborated with team members.
+Contributed to project-based development activities.
+
+Tools & Technologies:
+The provided documents do not specify which tools were used specifically during the Lab IntSys position. The portfolio generally lists Unity, C#, C++, JavaScript, SQL, Visual Studio Code, GitHub, and other technologies, but they cannot be definitively attributed to this position based on the source.
+
+3. BCA — MagangHub
+
+Job Title: Accounting & Tax Intern
+Employment Type: Internship
+Period: August 10, 2026 – February 9, 2027
+
+Division: Accounting & Tax
+Bureau: Tax Planning & Policy Bureau
+
+Short Description:
+Participating in an internship program through MagangHub within the Accounting & Tax division, supporting data processing, data matching, and workflow automation activities related to accounting and tax processes.
+
+Key Responsibilities:
+
+Performed data processing and data cleaning.
+Processed and matched data using KNIME and Microsoft Excel.
+Developed workflow automation using KNIME.
+Performed data transformation and standardization.
+Processed data related to Coretax.
+Worked with Excel and XML data.
+Performed data validation and matching based on fields such as TIN and Company Code.
+Assisted in automating previously manual processes.
+
+Tools & Technologies:
+
+KNIME
+Microsoft Excel
+XML
+Coretax
+Excel lookup functions, including VLOOKUP
+Data Processing
+Data Analysis
