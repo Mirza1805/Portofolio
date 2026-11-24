@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Details | Mirza</title>
+    <meta name="description" content="Project Details">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Inter:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="aset/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="aset/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="aset/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="aset/apple-touch-icon.png" />
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+    <div class="cursor-glow"></div>
+
+    <header class="navbar" id="navbar">
+        <a href="index.html#home" class="logo-link">
+            <img src="aset/logo.png" alt="Mirza Logo" class="nav-logo">
+        </a>
+        <nav class="nav-links">
+            <a href="index.html#home">Home</a>
+            <a href="index.html#about">About</a>
+            <a href="index.html#skills">Skills</a>
+            <a href="index.html#experience">Experience</a>
+            <a href="index.html#projects" class="active">Projects</a>
+            <a href="index.html#certificates">Certificates</a>
+            <a href="index.html#contact">Contact</a>
+        </nav>
+        <button class="mobile-menu-btn" aria-label="Toggle menu">
+            <i data-lucide="menu"></i>
+        </button>
+    </header>
+
+    <main>
+        <section class="section project-detail-section">
+            <div class="container">
+                <div class="project-layout">
+                    <!-- Main Content - Left Side -->
+                    <div class="project-main">
+                        <!-- Featured Project Image Slider -->
+                        <div class="featured-project">
+                            <div class="featured-slider">
+                                <div class="slider-track">
+                                    <div class="slider-slide active">
+                                        <img src="aset/Projek/OtomasiPPNLN/PPNLN 1.jpeg" alt="PPNLN Screenshot 1">
+                                    </div>
+                                    <div class="slider-slide">
+                                        <img src="aset/Projek/OtomasiPPNLN/PPNLN 2.jpeg" alt="PPNLN Screenshot 2">
+                                    </div>
+                                    <div class="slider-slide">
+                                        <img src="aset/Projek/OtomasiPPNLN/PPNLN 3.jpeg" alt="PPNLN Screenshot 3">
+                                    </div>
+                                </div>
+
+                                <!-- Slider Navigation -->
+                                <button class="slider-nav prev" aria-label="Previous slide">
+                                    <i data-lucide="chevron-left"></i>
+                                </button>
+                                <button class="slider-nav next" aria-label="Next slide">
+                                    <i data-lucide="chevron-right"></i>
+                                </button>
+
+                                <!-- Slider Indicators -->
+                                <div class="slider-indicators">
+                                    <span class="indicator active"></span>
+                                    <span class="indicator"></span>
+                                    <span class="indicator"></span>
+                                </div>
+
+                            </div>
+                            <div class="featured-info">
+                                <h5 class="featured-title">PPNLN Data Processing Automation</h5>
+                                <div class="featured-meta">
+                                    <span class="meta-item"><i data-lucide="calendar"></i> 2026</span>
+                                    <span class="meta-item"><i data-lucide="tag"></i> Automation</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Project Description -->
+                        <div class="project-content">
+                            <h2>About This Project</h2>
+                            <p>An end-to-end automated data pipeline developed during my Accounting & Tax internship at
+                                PT Bank Central Asia Tbk (BCA) to streamline Foreign Value-Added Tax (PPNLN) processing
+                                and reporting. Designed to replace repetitive manual spreadsheet operations with a
+                                standardized one-click workflow, the system automates data extraction, tax validation,
+                                and report formatting—validated through historical dataset simulations with zero
+                                functional errors to significantly cut monthly processing time and eliminate manual
+                                discrepancies.</p>
+
+                            <h3>Key Features</h3>
+                            <ul class="feature-list">
+                                <li>Automated Data Ingestion & Cleansing</li>
+                                <li>Built-In Validation & Error Checks</li>
+                                <li>Standardized Report Generation</li>
+                                <li>One-Click Execution & Backtesting</li>
+                            </ul>
+
+                            <h3>Technologies Used</h3>
+                            <div class="tech-tags">
+                                <span class="tag">KNIME</span>
+                                <span class="tag">Microsoft Excel</span>
+                                <span class="tag">XML</span>
+                            </div>
+                        </div>
+
+                        <!-- Screenshot Gallery -->
+                        <div class="screenshot-gallery">
+                            <h2>Screenshots</h2>
+                            <div class="gallery-grid">
+                                <div class="gallery-thumb">
+                                    <img src="aset/Projek/OtomasiPPNLN/PPNLN 1.jpeg" alt="Screenshot 1">
+                                </div>
+                                <div class="gallery-thumb">
+                                    <img src="aset/Projek/OtomasiPPNLN/PPNLN 2.jpeg" alt="Screenshot 2">
+                                </div>
+                                <div class="gallery-thumb">
+                                    <img src="aset/Projek/OtomasiPPNLN/PPNLN 3.jpeg" alt="Screenshot 3">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sidebar - Right Side -->
+                    <aside class="project-sidebar">
+                        <div class="sidebar-section">
+                            <h3 class="sidebar-title">Other Projects</h3>
+
+                            <!-- Other Project Item 1 -->
+                            <a href="contractkiller.html" class="sidebar-project">
+                                <div class="sidebar-project-img">
+                                    <img src="aset/Projek/Contractkiller/ContractKiller.png" alt="Contract Killer">
+                                </div>
+                                <div class="sidebar-project-info">
+                                    <h4>Contract Killer</h4>
+                                    <span class="sidebar-project-tech">Unity, C#</span>
+                                </div>
+                            </a>
+
+                            <!-- Other Project Item 2 -->
+                            <a href="aiconverse.html" class="sidebar-project">
+                                <div class="sidebar-project-img">
+                                    <img src="aset/Projek/AIConverse/1.png" alt="AIConverse">
+                                </div>
+                                <div class="sidebar-project-info">
+                                    <h4>AIConverse</h4>
+                                    <span class="sidebar-project-tech">PHP, HTML, CSS, JS</span>
+                                </div>
+                            </a>
+                            <!-- Other Project Item 3 -->
+                            <a href="chill.html" class="sidebar-project">
+                                <div class="sidebar-project-img">
+                                    <img src="aset/Projek/ChillRoom/1.png" alt="Chill">
+                                </div>
+                                <div class="sidebar-project-info">
+                                    <h4>Chill</h4>
+                                    <span class="sidebar-project-tech">HTML, CSS, JS</span>
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- Back Button -->
+                        <a href="projects.html" class="btn-back">
+                            <i data-lucide="arrow-left"></i> Back to Projects
+                        </a>
+                    </aside>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>
